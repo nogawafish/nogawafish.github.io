@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leaf on nogawafish</title>
+    <link>https://nogawafish.github.io/docs/emacs/leaf/</link>
+    <description>Recent content in Leaf on nogawafish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sat, 22 May 2021 15:35:48 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/docs/emacs/leaf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leaf</title>
+      <link>https://nogawafish.github.io/docs/emacs/leaf/leaf/</link>
+      <pubDate>Sat, 22 May 2021 15:35:28 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/emacs/leaf/leaf/</guid>
+      <description>leafは emacsの拡張パッケージのインストールと パッケージの設定をまとめて記述するためのパッケージ(実際はマクロ)です。 パッケージをインストールす</description>
+    </item>
+    
+    <item>
+      <title>日本語設定</title>
+      <link>https://nogawafish.github.io/docs/emacs/leaf/lang/</link>
+      <pubDate>Sun, 23 May 2021 18:00:12 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/emacs/leaf/lang/</guid>
+      <description>日本語環境の設定を行います。 MozcというGoogleが公開しているIMEを使用します。 IMEはいろいろあるようですが、Mozcが多く使われている印象</description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://nogawafish.github.io/docs/emacs/leaf/python/</link>
+      <pubDate>Sat, 22 May 2021 15:06:35 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/emacs/leaf/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Org</title>
+      <link>https://nogawafish.github.io/docs/emacs/leaf/org/</link>
+      <pubDate>Mon, 24 May 2021 18:59:17 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/emacs/leaf/org/</guid>
+      <description>org mode の設定。 (leaf org :config (leaf org-babel :config (org-babel-do-load-languages &#39;org-babel-load-languages &#39;((shell . t) (emacs-lisp . t) (lisp . t) (plantuml . t) (org . t) (python . t) (dot . t) (latex . t))) ))</description>
+    </item>
+    
+  </channel>
+</rss>

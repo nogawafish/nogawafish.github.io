@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang='en' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Leaf | Emacs | nogawafish</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.0" />
+<link rel="stylesheet" href="https://nogawafish.github.io/css/eureka.min.css">
+<script defer src="https://nogawafish.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://nogawafish.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://nogawafish.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="leafは emacsの拡張パッケージのインストールと パッケージの設定をまとめて記述するためのパッケージ(実際はマクロ)です。 パッケージをインストールす">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Docs",
+      "item":"https://nogawafish.github.io/docs/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Emacs",
+      "item":"https://nogawafish.github.io/docs/emacs/"},{
+      "@type": "ListItem",
+      "position": 3 ,
+      "name":"Leaf",
+      "item":"https://nogawafish.github.io/docs/emacs/leaf/"},{
+      "@type": "ListItem",
+      "position": 4 ,
+      "name":"Leaf",
+      "item":"https://nogawafish.github.io/docs/emacs/leaf/leaf/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nogawafish.github.io/docs/emacs/leaf/leaf/"
+    },
+    "headline": "Leaf | Emacs | nogawafish","datePublished": "2021-05-22T15:35:28+09:00",
+    "dateModified": "2021-05-22T15:35:28+09:00",
+    "wordCount":  1595 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://nogawafish.github.io/images/icon.png"
+        }
+        },
+    "description": "leafは emacsの拡張パッケージのインストールと パッケージの設定をまとめて記述するためのパッケージ(実際はマクロ)です。 パッケージをインストールす"
+}
+</script><meta property="og:title" content="Leaf | Emacs | nogawafish" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://nogawafish.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://nogawafish.github.io/docs/emacs/leaf/leaf/" />
+
+
+
+
+<meta property="og:description" content="leafは emacsの拡張パッケージのインストールと パッケージの設定をまとめて記述するためのパッケージ(実際はマクロ)です。 パッケージをインストールす" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="nogawafish" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-05-22T15:35:28&#43;09:00" />
+
+
+<meta property="article:modified_time" content="2021-05-22T15:35:28&#43;09:00" />
+
+
+
+<meta property="article:section" content="docs" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">nogawafish</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Posts</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="lg:pt-12">
+    <div class="flex flex-col md:flex-row bg-secondary-bg rounded">
+        <div class="md:w-1/4 lg:w-1/5 border-r">
+            <div class="sticky top-16 pt-6">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="sidebar-title" class="md:hidden mx-4 px-2 pt-4 pb-2 md:border-b text-tertiary-text md:text-primary-text">
+    <span class="font-semibold">Table of Contents</span>
+    <i class="fas fa-caret-right ml-1"></i>
+</div>
+
+<div id="sidebar-toc"
+    class="hidden md:block overflow-y-auto mx-6 md:mx-0 pr-6 pt-2 md:max-h-doc-sidebar bg-primary-bg md:bg-transparent">
+    <div class="flex flex-wrap ml-4 -mr-2 p-2 bg-secondary-bg md:bg-primary-bg rounded">
+        <a class=" hover:text-eureka"
+            href="https://nogawafish.github.io/docs/emacs/">Emacs</a>
+        
+        
+        
+
+
+    </div>
+    
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class=" pb-2 ">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/emacs/org/">Org</a>
+        </div>
+        
+        
+<ul class="pl-6">
+    
+</ul>
+
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class=" pb-2 ">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/emacs/leaf/">Leaf</a>
+        </div>
+        
+        
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" text-eureka  hover:text-eureka"
+                href="https://nogawafish.github.io/docs/emacs/leaf/leaf/">Leaf</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/emacs/leaf/lang/">日本語設定</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/emacs/leaf/python/">Python</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/emacs/leaf/org/">Org</a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+        
+    </li>
+    
+    
+</ul>
+
+</div>
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+        <div class="w-full md:w-3/4 lg:w-4/5 pb-8 pt-2 md:pt-8">
+            <div class="w-full lg:w-3/4 pl-6 ml-0 mr-auto">
+                <h1 class="font-bold text-3xl text-primary-text">Leaf</h1>
+                <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-05-22</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+            </div>
+            <div class="flex">
+                <div class="w-full lg:w-3/4 px-6">
+                    
+                    
+                    <div class="content">
+                        <p><a href="https://github.com/conao3/leaf.el"><code>leaf</code></a>は
+emacsの拡張パッケージのインストールと
+パッケージの設定をまとめて記述するためのパッケージ(実際はマクロ)です。</p>
+<p>パッケージをインストールするための設定とインストールに関係ない設定もまとめて書け、設定が階層的に書けます。</p>
+<p>おそらくleafを触り始めて最初に覚えるべきキーワードは<code>:ensure</code>と<code>:config</code>だと思います。</p>
+<p><code>:ensure t</code>と指定すると、Emacs付属のパッケージマネージャ<code>package.el</code>によってパッケージがインストールされます。</p>
+<p>例えば以下のように書けば<code>magit</code>というパッケージがインストールされます。</p>
+<pre><code class="language-emacs-lisp">(leaf magit :ensure t)
+</code></pre>
+<p>次に<code>:config</code>を指定すると、パッケージインストールに関係無い設定ができます。
+例えば以下のように書きます。</p>
+<pre><code class="language-emacs-lisp">(leaf magit :ensure t
+      	    :config (some-git-setting))
+</code></pre>
+<p>leafでは設定を階層的に書くと上で説明しました。
+例えば以下のように書きます。</p>
+<pre><code class="language-emacs-lisp">(leaf org
+  :config
+  (leaf org-babel
+    :config
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((shell      . t)
+       (emacs-lisp . t)))))
+</code></pre>
+<p>この例では、orgという設定のくくりの中で、中でorg-babelの設定を行っています。
+ここで文法上の注意として、２つの<code>:config</code>が省略できないということが挙げられます。
+もし<code>:config</code>キーワード(あるいは<code>:preface``:init</code>でもOK)がない場合、<code>:config</code>に続くS式がleafマクロ展開によって消されるためです。</p>
+<p>キーワードの詳しい説明は、<a href="https://github.com/conao3/leaf.el"><code>leaf</code></a>で確認できます。その他のキーワードについても説明されています。</p>
+<p>次では<code>:ensure</code>と<code>:config</code>キーワードが実際どのように動くかを確認しています。</p>
+<h2 id="ensure-tによるパッケージインストールの中身"><code>:ensure t</code>によるパッケージインストールの中身</h2>
+<p><code>leaf</code>によるパッケージインストールがどのように行われているか興味があったので調べました。</p>
+<p>上記の<code>(leaf magit :ensure t)</code>マクロを展開してみると以下の様になります。</p>
+<pre><code class="language-lisp">(prog1 'magit
+  (leaf-handler-leaf-path magit)
+  (leaf-handler-leaf-protect magit
+    (leaf-handler-package magit magit nil)))
+</code></pre>
+<p>さらに<code>leaf-handler-package</code>マクロを展開してみます。</p>
+<pre><code class="language-lisp">(prog1 'magit
+  (leaf-handler-leaf-path magit)
+  (leaf-handler-leaf-protect magit
+    (unless
+	(package-installed-p 'magit) ;; magitがインストールされていない場合
+      (unless
+	  (assoc 'magit package-archive-contents) ;;連想リストpackage-archive-contentsにmagitが登録されていない場合
+	(package-refresh-contents))
+      (condition-case _err
+	  (package-install 'magit) ;; インストールを行う
+	(error
+	 (condition-case err
+	     (progn
+	       (package-refresh-contents)
+	       (package-install 'magit))
+	   (error 
+	    (display-warning 'leaf ;; 2回試してもインストールできない場合エラー文を出力
+			     (format &quot;In `magit' block, failed to :package of `magit'.  Error msg: %s&quot;
+				     (error-message-string err))))))))))
+</code></pre>
+<p>すると、<code>magit</code>がインストールされていないときにインストールし、
+インストールできなかったらエラーを出力するという処理になっていることが確認できました。</p>
+<h2 id="configによる設定の評価の確認"><code>:config</code>による設定の評価の確認</h2>
+<p>例えば以下のようにAという設定名の中でナイーブに(setting-func args)で設定を行おうとするのは誤りです。</p>
+<pre><code class="language-lisp">(leaf A (setting-func args))
+</code></pre>
+<p>これは以下のようにleafマクロによって展開されてしまい、行いたい設定が消えてしまうのです。</p>
+<pre><code class="language-lisp">(prog1 'A)
+</code></pre>
+<p>正しくは、以下のように:configキーワードをつけます。</p>
+<pre><code class="language-lisp">(leaf A :config (setting-func args))
+</code></pre>
+<p>このマクロは展開すると以下のようになります。</p>
+<pre><code class="language-lisp">(prog1 'A
+	 (leaf-handler-leaf-path A)
+	 (condition-case err
+	     (progn
+	       (setting-func args))
+	   (error
+	    (display-warning 'leaf
+			     (format &quot;Error in `A' block.  Error msg: %s&quot;
+				     (error-message-string err))))))
+</code></pre>
+<p>これを見ると分かるようにちゃんと<code>(setting-func args)</code>を評価し、エラー処理までしてくれることが分かります。</p>
+<p><code>:config</code>が大切という話でした。</p>
+<h2 id="initelのバイトコンパイル">init.elのバイトコンパイル</h2>
+<p><code>leaf</code>の作者によると<code>init.el</code>は以下の理由でバイトコンパイルした方が良いと<a href="https://qiita.com/conao3/items/347d7e472afd0c58fbd7">述べられています</a>。</p>
+<blockquote>
+<p>バイトコンパイルによる実行速度への寄与は少ないですが、コンパイラのワーニング(未定義変数の参照、未定義関数の評価など)を受け取るためにもバイトコンパイルをした方が良いです。ただ、バイトコンパイルした .elc とバイトコンパイル前の .el は .elc の方が優先度が高いので、init.elを編集した後は必ずバイトコンパイルを忘れないようにしましょう。</p>
+</blockquote>
+<p>一度バイトコンパイルをしたら、init.elを編集した後は必ずバイトコンパイルを忘れないようにしましょう。</p>
+<p>以下のコマンドでバイトコンパイルができます。</p>
+<pre><code class="language-shell">$ emacs --batch -f batch-byte-compile init.el
+</code></pre>
+
+                    </div>
+                    
+                    
+
+                    
+
+
+
+                    
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="https://nogawafish.github.io/docs/emacs/leaf/lang/" class="block">日本語設定</a>
+        
+    </div>
+</div>
+
+                    
+
+
+
+                </div>
+                
+                <div class="hidden lg:block lg:w-1/4">
+                    
+                    <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-secondary-bg pt-16 -mt-16 ">
+    <span class="text-lg font-semibold">On This Page</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6  pt-10 -mt-10 border-l ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ensure-tによるパッケージインストールの中身"><code>:ensure t</code>によるパッケージインストールの中身</a></li>
+    <li><a href="#configによる設定の評価の確認"><code>:config</code>による設定の評価の確認</a></li>
+    <li><a href="#initelのバイトコンパイル">init.elのバイトコンパイル</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+                    
+                </div>
+                
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        hljs.initHighlightingOnLoad();
+        changeSidebarHeight();
+        switchDocToc();
+    })
+</script>
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

@@ -8,32 +8,50 @@
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Tue, 18 May 2021 21:17:38 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 May 2021 12:21:53 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My First Post</title>
-      <link>https://nogawafish.github.io/post/my-first-post/</link>
-      <pubDate>Tue, 18 May 2021 21:17:38 +0900</pubDate>
+      <title>Leaf</title>
+      <link>https://nogawafish.github.io/docs/emacs/leaf/leaf/</link>
+      <pubDate>Sat, 22 May 2021 15:35:28 +0900</pubDate>
       
-      <guid>https://nogawafish.github.io/post/my-first-post/</guid>
-      <description>yeah</description>
+      <guid>https://nogawafish.github.io/docs/emacs/leaf/leaf/</guid>
+      <description>leafは emacsの拡張パッケージのインストールと パッケージの設定をまとめて記述するためのパッケージ(実際はマクロ)です。 パッケージをインストールす</description>
     </item>
     
     <item>
-      <title>Diagram Support</title>
-      <link>https://nogawafish.github.io/posts/diagram-support/</link>
-      <pubDate>Wed, 31 Mar 2021 13:11:22 +0800</pubDate>
+      <title>日本語設定</title>
+      <link>https://nogawafish.github.io/docs/emacs/leaf/lang/</link>
+      <pubDate>Sun, 23 May 2021 18:00:12 +0900</pubDate>
       
-      <guid>https://nogawafish.github.io/posts/diagram-support/</guid>
-      <description>&lt;p&gt;Eureka supports the rendering of diagrams by using Mermaid.&lt;/p&gt;</description>
+      <guid>https://nogawafish.github.io/docs/emacs/leaf/lang/</guid>
+      <description>日本語環境の設定を行います。 MozcというGoogleが公開しているIMEを使用します。 IMEはいろいろあるようですが、Mozcが多く使われている印象</description>
     </item>
     
     <item>
-      <title>Math Support</title>
-      <link>https://nogawafish.github.io/posts/math-support/</link>
-      <pubDate>Fri, 20 Nov 2020 22:52:56 +0800</pubDate>
+      <title>Python</title>
+      <link>https://nogawafish.github.io/docs/emacs/leaf/python/</link>
+      <pubDate>Sat, 22 May 2021 15:06:35 +0900</pubDate>
       
-      <guid>https://nogawafish.github.io/posts/math-support/</guid>
-      <description>&lt;p&gt;Eureka supports the rendering of mathematical formulas by using KaTeX.&lt;/p&gt;</description>
+      <guid>https://nogawafish.github.io/docs/emacs/leaf/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Org</title>
+      <link>https://nogawafish.github.io/docs/emacs/leaf/org/</link>
+      <pubDate>Mon, 24 May 2021 18:59:17 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/emacs/leaf/org/</guid>
+      <description>org mode の設定。 (leaf org :config (leaf org-babel :config (org-babel-do-load-languages &#39;org-babel-load-languages &#39;((shell . t) (emacs-lisp . t) (lisp . t) (plantuml . t) (org . t) (python . t) (dot . t) (latex . t))) ))</description>
+    </item>
+    
+    <item>
+      <title>Blog 開始(Hugo Eureka)</title>
+      <link>https://nogawafish.github.io/posts/2021/start-blog/</link>
+      <pubDate>Sat, 22 May 2021 16:37:36 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/posts/2021/start-blog/</guid>
+      <description>メモ用のブログ開始しました。 ブログだけのサイトよりは、あるトピックについて一箇所にまとめられるサイト のテンプレートを探しました。 いろいろ調べた結果この</description>
     </item>
     
     <item>
@@ -70,42 +88,6 @@
       
       <guid>https://nogawafish.github.io/docs/example-doc/nested-chapter/chapter-2/</guid>
       <description>&lt;p&gt;This is chapter 2 of nested chapter.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Featured Image</title>
-      <link>https://nogawafish.github.io/posts/featured-image/</link>
-      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nogawafish.github.io/posts/featured-image/</guid>
-      <description>&lt;p&gt;Maecenas maximus, elit in ornare porttitor, nisi eros hendrerit nisl, sed fermentum nulla urna blandit tellus.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Markdown Syntax Guide</title>
-      <link>https://nogawafish.github.io/posts/markdown-syntax/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://nogawafish.github.io/posts/markdown-syntax/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Placeholder Text</title>
-      <link>https://nogawafish.github.io/posts/placeholder-text/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://nogawafish.github.io/posts/placeholder-text/</guid>
-      <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Emoji Support</title>
-      <link>https://nogawafish.github.io/posts/emoji-support/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://nogawafish.github.io/posts/emoji-support/</guid>
-      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
     </item>
     
   </channel>
