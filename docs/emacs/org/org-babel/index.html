@@ -95,7 +95,7 @@
     },
     "headline": "Org Babel | Emacs | nogawafish","datePublished": "2021-05-31T12:24:24+09:00",
     "dateModified": "2021-05-31T12:24:24+09:00",
-    "wordCount":  266 ,
+    "wordCount":  291 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -399,12 +399,6 @@ Org Babel によるpython実行
 </h4>
 <div id="outline-text-headline-2" class="outline-text-4">
 <pre class="example">
-
-</pre>
-<div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text"></code></pre></div>
-</div>
-<pre class="example">
 #+BEGIN_SRC python :session system
 def foo(x):
     if x &gt; 0:o
@@ -419,13 +413,10 @@ return foo(5)
 
 
 #+BEGIN_SRC shell :session system
-echo $VIRTUAL_ENV
 which python
 #+END_SRC
 
 #+RESULTS:
-|                                 |
-|                                 |
 | /home/myname/.pyenv/shims/python |
 </pre>
 </div>
@@ -439,7 +430,6 @@ pipenvで作成したpython仮想環境を使用
 <a href="https://emacs.stackexchange.com/questions/24267/using-org-babel-to-enable-virtualenv">https://emacs.stackexchange.com/questions/24267/using-org-babel-to-enable-virtualenv</a>
 のanswerに従うと以下のように設定することでpipenvで設定した仮想環境を使用できることを確認した。</p>
 <pre class="example">
-
 #+BEGIN_SRC elisp :session venv
 (pyvenv-workon &#34;nogawafishSite-gnCTSypq&#34;)
 #+END_SRC
@@ -479,6 +469,16 @@ print(&#39;\n&#39;.join(sys.path))
 </div>
 </div>
 </div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+matplotlibによるグラフ表示
+</h3>
+</div>
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
+pandas Dataframeの表示
+</h3>
+</div>
 
                     </div>
                     
@@ -510,6 +510,10 @@ print(&#39;\n&#39;.join(sys.path))
 <li><a href="#headline-3">pipenvで作成したpython仮想環境を使用</a>
 </li>
 </ul>
+</li>
+<li><a href="#headline-4">matplotlibによるグラフ表示</a>
+</li>
+<li><a href="#headline-5">pandas Dataframeの表示</a>
 </li>
 </ul>
 </nav>
