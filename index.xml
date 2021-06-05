@@ -10,6 +10,15 @@
 </copyright>
     <lastBuildDate>Sat, 05 Jun 2021 18:33:13 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Org Babel</title>
+      <link>https://nogawafish.github.io/docs/emacs/org/org-babel/</link>
+      <pubDate>Mon, 31 May 2021 12:24:24 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/emacs/org/org-babel/</guid>
+      <description>Org Babelによるorgファイル中でのソースコード実行。 init.elの設定は別ページで。 Org Babel によるpython実行 システムのpythonを使用 #+BEGIN_SRC python :session</description>
+    </item>
+    
+    <item>
       <title>Leaf</title>
       <link>https://nogawafish.github.io/docs/emacs/leaf/leaf/</link>
       <pubDate>Sat, 22 May 2021 15:35:28 +0900</pubDate>
@@ -52,15 +61,6 @@
       
       <guid>https://nogawafish.github.io/docs/trading/data/pandas_datareader/</guid>
       <description>pandas_datareaderというライブラリを使えば株価・為替・暗号通貨等のデータを 簡単に取得できます。 pandas_datareaderは実態</description>
-    </item>
-    
-    <item>
-      <title>Org Babel</title>
-      <link>https://nogawafish.github.io/docs/emacs/org/org-babel/</link>
-      <pubDate>Mon, 31 May 2021 12:24:24 +0900</pubDate>
-      
-      <guid>https://nogawafish.github.io/docs/emacs/org/org-babel/</guid>
-      <description>Org Babelによるorgファイル中でのソースコード実行。 init.elの設定は別ページで。 Org Babel によるpython実行 システムのpythonを使用 #+BEGIN_SRC python :session</description>
     </item>
     
     <item>
