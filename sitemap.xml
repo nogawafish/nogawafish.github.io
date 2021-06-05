@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nogawafish.github.io/docs/trading/data/pandas_datareader/</loc>
+    <lastmod>2021-06-05T18:33:13+09:00</lastmod>
+  </url><url>
     <loc>https://nogawafish.github.io/docs/emacs/org/org-babel/</loc>
     <lastmod>2021-05-31T12:24:24+09:00</lastmod>
-  </url><url>
-    <loc>https://nogawafish.github.io/docs/emacs/org/</loc>
-    <lastmod>2021-05-31T12:21:53+09:00</lastmod>
   </url><url>
     <loc>https://nogawafish.github.io/docs/trading/</loc>
     <lastmod>2021-05-22T15:54:27+09:00</lastmod>
@@ -23,6 +23,9 @@
     <loc>https://nogawafish.github.io/docs/emacs/</loc>
     <lastmod>2021-05-22T15:13:59+09:00</lastmod>
   </url><url>
+    <loc>https://nogawafish.github.io/docs/emacs/org/</loc>
+    <lastmod>2021-05-31T12:21:53+09:00</lastmod>
+  </url><url>
     <loc>https://nogawafish.github.io/docs/emacs/leaf/lang/</loc>
     <lastmod>2021-05-23T18:00:12+09:00</lastmod>
   </url><url>
@@ -36,9 +39,6 @@
     <lastmod>2021-06-05T18:33:13+09:00</lastmod>
   </url><url>
     <loc>https://nogawafish.github.io/</loc>
-    <lastmod>2021-06-05T18:33:13+09:00</lastmod>
-  </url><url>
-    <loc>https://nogawafish.github.io/docs/trading/data/pandas_datareader/</loc>
     <lastmod>2021-06-05T18:33:13+09:00</lastmod>
   </url><url>
     <loc>https://nogawafish.github.io/posts/2021/start-blog/</loc>
