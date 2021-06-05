@@ -9,5 +9,14 @@
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
 </copyright>
     <lastBuildDate>Mon, 31 May 2021 12:21:53 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/docs/emacs/org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Org Babel</title>
+      <link>https://nogawafish.github.io/docs/emacs/org/org-babel/</link>
+      <pubDate>Mon, 31 May 2021 12:24:24 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/emacs/org/org-babel/</guid>
+      <description>Org Babelによるorgファイル中でのソースコード実行。 init.elの設定は別ページで。 Org Babel によるpython実行 システムのpythonを使用 #+BEGIN_SRC python :session</description>
+    </item>
+    
   </channel>
 </rss>

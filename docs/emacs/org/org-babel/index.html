@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width">
 
 
-<title>Org | Emacs | nogawafish</title>
+<title>Org Babel | Emacs | nogawafish</title>
 
 <meta name="generator" content="Hugo Eureka 0.8.0" />
 <link rel="stylesheet" href="https://nogawafish.github.io/css/eureka.min.css">
@@ -58,7 +58,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="https://nogawafish.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png">
 
 <meta name="description"
-  content="org mode の設定。 (leaf org :config (leaf org-babel :config (org-babel-do-load-languages &#39;org-babel-load-languages &#39;((shell . t) (emacs-lisp . t) (lisp . t) (plantuml . t) (org . t) (python . t) (dot . t) (latex . t))) ))">
+  content="Org Babelによるorgファイル中でのソースコード実行。 init.elの設定は別ページで。 Org Babel によるpython実行 システムのpythonを使用 #&#43;BEGIN_SRC python :session">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -74,12 +74,12 @@
       "item":"https://nogawafish.github.io/docs/emacs/"},{
       "@type": "ListItem",
       "position": 3 ,
-      "name":"Leaf",
-      "item":"https://nogawafish.github.io/docs/emacs/leaf/"},{
+      "name":"Org",
+      "item":"https://nogawafish.github.io/docs/emacs/org/"},{
       "@type": "ListItem",
       "position": 4 ,
-      "name":"Org",
-      "item":"https://nogawafish.github.io/docs/emacs/leaf/org/"}]
+      "name":"Org Babel",
+      "item":"https://nogawafish.github.io/docs/emacs/org/org-babel/"}]
 }
 </script>
 
@@ -91,11 +91,11 @@
     "@type": "Article",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://nogawafish.github.io/docs/emacs/leaf/org/"
+        "@id": "https://nogawafish.github.io/docs/emacs/org/org-babel/"
     },
-    "headline": "Org | Emacs | nogawafish","datePublished": "2021-05-24T18:59:17+09:00",
-    "dateModified": "2021-05-24T18:59:17+09:00",
-    "wordCount":  39 ,
+    "headline": "Org Babel | Emacs | nogawafish","datePublished": "2021-05-31T12:24:24+09:00",
+    "dateModified": "2021-05-31T12:24:24+09:00",
+    "wordCount":  266 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -104,21 +104,21 @@
             "url": "https://nogawafish.github.io/images/icon.png"
         }
         },
-    "description": "org mode の設定。 (leaf org :config (leaf org-babel :config (org-babel-do-load-languages \u0027org-babel-load-languages \u0027((shell . t) (emacs-lisp . t) (lisp . t) (plantuml . t) (org . t) (python . t) (dot . t) (latex . t))) ))"
+    "description": "Org Babelによるorgファイル中でのソースコード実行。 init.elの設定は別ページで。 Org Babel によるpython実行 システムのpythonを使用 #\u002bBEGIN_SRC python :session"
 }
-</script><meta property="og:title" content="Org | Emacs | nogawafish" />
+</script><meta property="og:title" content="Org Babel | Emacs | nogawafish" />
 <meta property="og:type" content="article" />
 
 
 <meta property="og:image" content="https://nogawafish.github.io/images/icon.png">
 
 
-<meta property="og:url" content="https://nogawafish.github.io/docs/emacs/leaf/org/" />
+<meta property="og:url" content="https://nogawafish.github.io/docs/emacs/org/org-babel/" />
 
 
 
 
-<meta property="og:description" content="org mode の設定。 (leaf org :config (leaf org-babel :config (org-babel-do-load-languages &#39;org-babel-load-languages &#39;((shell . t) (emacs-lisp . t) (lisp . t) (plantuml . t) (org . t) (python . t) (dot . t) (latex . t))) ))" />
+<meta property="og:description" content="Org Babelによるorgファイル中でのソースコード実行。 init.elの設定は別ページで。 Org Babel によるpython実行 システムのpythonを使用 #&#43;BEGIN_SRC python :session" />
 
 
 
@@ -135,10 +135,10 @@
 
 
 
-<meta property="article:published_time" content="2021-05-24T18:59:17&#43;09:00" />
+<meta property="article:published_time" content="2021-05-31T12:24:24&#43;09:00" />
 
 
-<meta property="article:modified_time" content="2021-05-24T18:59:17&#43;09:00" />
+<meta property="article:modified_time" content="2021-05-31T12:24:24&#43;09:00" />
 
 
 
@@ -273,7 +273,7 @@
     
     <li class="py-2">
         <div class="">
-            <a class=" hover:text-eureka"
+            <a class=" text-eureka  hover:text-eureka"
                 href="https://nogawafish.github.io/docs/emacs/org/org-babel/">Org Babel</a>
         </div>
         
@@ -334,7 +334,7 @@
     
     <li class="py-2">
         <div class="">
-            <a class=" text-eureka  hover:text-eureka"
+            <a class=" hover:text-eureka"
                 href="https://nogawafish.github.io/docs/emacs/leaf/org/">Org</a>
         </div>
         
@@ -362,11 +362,11 @@
         </div>
         <div class="w-full md:w-3/4 lg:w-4/5 pb-8 pt-2 md:pt-8">
             <div class="w-full lg:w-3/4 pl-6 ml-0 mr-auto">
-                <h1 class="font-bold text-3xl text-primary-text">Org</h1>
+                <h1 class="font-bold text-3xl text-primary-text">Org Babel</h1>
                 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2021-05-24</span>
+        <span>2021-05-31</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
@@ -383,23 +383,102 @@
                     
                     
                     <div class="content">
-                        <p>org mode の設定。</p>
-<pre><code class="language-lisp">(leaf org
-  :config
-  (leaf org-babel
-    :config
-    (org-babel-do-load-languages
-     'org-babel-load-languages
-     '((shell      . t)
-       (emacs-lisp . t)
-       (lisp       . t)     
-       (plantuml   . t)
-       (org        . t)
-       (python     . t)
-       (dot        . t)
-       (latex      . t)))
-    ))
-</code></pre>
+                        
+<p>
+Org Babelによるorgファイル中でのソースコード実行。</p>
+<p>
+init.elの設定は別ページで。</p>
+<div id="outline-container-headline-1" class="outline-3">
+<h3 id="headline-1">
+Org Babel によるpython実行
+</h3>
+<div id="outline-text-headline-1" class="outline-text-3">
+<div id="outline-container-headline-2" class="outline-4">
+<h4 id="headline-2">
+システムのpythonを使用
+</h4>
+<div id="outline-text-headline-2" class="outline-text-4">
+<pre class="example">
+
+</pre>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text"></code></pre></div>
+</div>
+<pre class="example">
+#+BEGIN_SRC python :session system
+def foo(x):
+    if x &gt; 0:o
+        return x+1
+    else:
+        return x-1
+
+return foo(5)
+#+END_SRC
+
+#+RESULTS:
+
+
+#+BEGIN_SRC shell :session system
+echo $VIRTUAL_ENV
+which python
+#+END_SRC
+
+#+RESULTS:
+|                                 |
+|                                 |
+| /home/myname/.pyenv/shims/python |
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-4">
+<h4 id="headline-3">
+pipenvで作成したpython仮想環境を使用
+</h4>
+<div id="outline-text-headline-3" class="outline-text-4">
+<p>あるいはpipenvで作成した環境を用いることもできる。
+<a href="https://emacs.stackexchange.com/questions/24267/using-org-babel-to-enable-virtualenv">https://emacs.stackexchange.com/questions/24267/using-org-babel-to-enable-virtualenv</a>
+のanswerに従うと以下のように設定することでpipenvで設定した仮想環境を使用できることを確認した。</p>
+<pre class="example">
+
+#+BEGIN_SRC elisp :session venv
+(pyvenv-workon &#34;nogawafishSite-gnCTSypq&#34;)
+#+END_SRC
+
+#+RESULTS:
+
+
+#+BEGIN_SRC shell :session venv
+echo $VIRTUAL_ENV
+which python
+#+END_SRC
+
+#+RESULTS:
+| /home/myname/.virtualenvs/nogawafishSite-gnCTSypq            |
+| /home/myname/.virtualenvs/nogawafishSite-gnCTSypq/bin/python |
+
+
+#+BEGIN_SRC python :results output :session venv-scratch
+import sys
+print(&#39;\n&#39;.join(sys.path))
+#+END_SRC
+
+#+RESULTS:
+: /usr/lib/python38.zip
+: /usr/lib/python3.8
+: /usr/lib/python3.8/lib-dynload
+: /home/myname/.virtualenvs/nogawafishSite-gnCTSypq/lib/python3.8/site-packages
+: ~/prj/blog/nogawafishSite/
+
+#+BEGIN_SRC elisp :session venv
+(pyvenv-deactivate)
+#+END_SRC
+
+#+RESULTS:
+</pre>
+</div>
+</div>
+</div>
+</div>
 
                     </div>
                     
@@ -410,18 +489,6 @@
 
 
                     
-<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
-    <div>
-        
-        <span class="block font-bold">Previous</span>
-        <a href="https://nogawafish.github.io/docs/emacs/leaf/python/" class="block">Python</a>
-        
-    </div>
-    <div class="md:text-right mt-4 md:mt-0">
-        
-    </div>
-</div>
-
                     
 
 
