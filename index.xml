@@ -8,7 +8,7 @@
     <language>en</language>
     <copyright>&amp;copy; 2021 - {currentyear} nogawafish
 </copyright>
-    <lastBuildDate>Sun, 20 Jun 2021 21:31:09 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Sep 2021 11:10:26 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>仮設設定</title>
       <link>https://nogawafish.github.io/docs/trading/ml_trading/hypothesis/</link>
@@ -106,6 +106,15 @@
       
       <guid>https://nogawafish.github.io/docs/trading/ml_trading/training/</guid>
       <description>学習について</description>
+    </item>
+    
+    <item>
+      <title>raspberry pi 4BでUbuntu Seruverをusb bootしMongoDBをインストール</title>
+      <link>https://nogawafish.github.io/posts/2021/mongo/</link>
+      <pubDate>Mon, 20 Sep 2021 11:10:26 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/posts/2021/mongo/</guid>
+      <description>MongoDBをraspberry piで使うため設定を行ったので備忘録。 usb bootの設定 ubuntu server の設定 mongoDBのインストール 1. usb bootの設定 母艦の</description>
     </item>
     
     <item>

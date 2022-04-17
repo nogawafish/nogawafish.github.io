@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang='en' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>raspberry pi 4BでUbuntu Seruverをusb bootしMongoDBをインストール | nogawafish</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.0" />
+<link rel="stylesheet" href="https://nogawafish.github.io/css/eureka.min.css">
+<script defer src="https://nogawafish.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://nogawafish.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://nogawafish.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="MongoDBをraspberry piで使うため設定を行ったので備忘録。 usb bootの設定 ubuntu server の設定 mongoDBのインストール 1. usb bootの設定 母艦の">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://nogawafish.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"raspberry pi 4BでUbuntu Seruverをusb bootしMongoDBをインストール",
+      "item":"https://nogawafish.github.io/posts/2021/mongo/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nogawafish.github.io/posts/2021/mongo/"
+    },
+    "headline": "raspberry pi 4BでUbuntu Seruverをusb bootしMongoDBをインストール | nogawafish","datePublished": "2021-09-20T11:10:26+09:00",
+    "dateModified": "2021-09-20T11:10:26+09:00",
+    "wordCount":  3038 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://nogawafish.github.io/images/icon.png"
+        }
+        },
+    "description": "MongoDBをraspberry piで使うため設定を行ったので備忘録。 usb bootの設定 ubuntu server の設定 mongoDBのインストール 1. usb bootの設定 母艦の"
+}
+</script><meta property="og:title" content="raspberry pi 4BでUbuntu Seruverをusb bootしMongoDBをインストール | nogawafish" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://nogawafish.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://nogawafish.github.io/posts/2021/mongo/" />
+
+
+
+
+<meta property="og:description" content="MongoDBをraspberry piで使うため設定を行ったので備忘録。 usb bootの設定 ubuntu server の設定 mongoDBのインストール 1. usb bootの設定 母艦の" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="nogawafish" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-09-20T11:10:26&#43;09:00" />
+
+
+<meta property="article:modified_time" content="2021-09-20T11:10:26&#43;09:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">nogawafish</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">raspberry pi 4BでUbuntu Seruverをusb bootしMongoDBをインストール</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-09-20</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>7 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            
+<p>
+MongoDBをraspberry piで使うため設定を行ったので備忘録。</p>
+<ol>
+<li>
+<p>usb bootの設定</p>
+</li>
+<li>
+<p>ubuntu server の設定</p>
+</li>
+<li>
+<p>mongoDBのインストール</p>
+</li>
+</ol>
+<div id="outline-container-headline-1" class="outline-3">
+<h3 id="headline-1">
+1. usb bootの設定
+</h3>
+<div id="outline-text-headline-1" class="outline-text-3">
+<p>母艦のwindowsでRasberyy Pi Imagerを使い、raspberry Pi OSをSDカードにインストール。
+ラズパイにSDカードを挿入し、起動。</p>
+<div class="src src-shell">
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt update
+sudo apt upgrade</code></pre></div>
+</div>
+<p>ブートローダを最新にする。</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">ls /lib/firmware/raspberrypi/bootloader/stable/
+;pieeprom-2021-x-y.bin(最新版)
+sudo rpi-eeprom-update -d -f /lib/firmware/raspberrypi/bootloader/stable/pieeprom-2021-x-y.bin 
+reboot</code></pre></div>
+</div>
+<p>
+起動順番を変更する。</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">sudo raspi-config</code></pre></div>
+</div>
+<p>&#34;Advanced Options&#34;-&gt;&#34;Boot Order&#34;&gt;&#34;USB Boot&#34;を押す。</p>
+<p>
+自分の環境ではここで&#34;No EEPROM bin file found for version 2020-05-27 - aborting&#34;
+というエラーが出現したので、
+8 Updateを選択して最新バージョンにアップデート。</p>
+<p>
+再起動して以下を実行。</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">sudo raspi-config</code></pre></div>
+</div>
+<p>&#34;Advanced Options&#34;-&gt;&#34;Boot Order&#34;&gt;&#34;USB Boot&#34;を押すと、
+今度は無事設定が完了した。
+rebootしろと出てくるので再起動する。</p>
+<p>
+これで無事usbにインストールされたOSが起動時に優先されるようになった。</p>
+<p>
+参考</p>
+<ul>
+<li>
+<p><a href="https://gadgetrip.jp/2021/05/raspberry_pi4_usb_boot/">SDカード不要？ 「Raspberry Pi 4」をUSBブートさせる方法について</a></p>
+</li>
+<li>
+<p><a href="https://ameblo.jp/mongol-sky/entry-12622132079.html">Raspberry Pi OSが2020-08-20でLinuxカーネルバージョン5.4.51に</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-3">
+<h3 id="headline-2">
+2. ubuntu server の設定
+</h3>
+<div id="outline-text-headline-2" class="outline-text-3">
+<p>最初はubuntu server 20.04をSSDにインストールしていたが、これでは起動しない。
+調べたら<a href="https://www.raspberrypi.org/forums/viewtopic.php?t=295609">Ubuntu Server 20.04がUSB bootで起動しない現象が報告</a>されていた。
+また、バージョン20.10では上手く行ったと報告があった。
+raspberry pi Imagerには20.10はなく21.04があったため、
+今回はUbuntu Server 21.04 64bitをSSDに書き込む。
+後のmongoDBとの兼ね合いで64bit版を選択することを間違えないようにする。</p>
+<p>
+ssdを一回windowsから抜きもう一度挿す。
+network-config.yamlを編集しwifiの設定をしておく。</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">wifis:
+  wlan0:
+    dhcp4: true
+    optional: true
+    access-points:
+      &#34;myssid&#34;:
+        password: &#34;password&#34;</code></pre></div>
+</div>
+<p>
+SSDをラズパイのUSB3.0の穴(青い方)に差して起動したところ無事起動することを確認した。</p>
+<div id="outline-container-headline-3" class="outline-4">
+<h4 id="headline-3">
+家のwifiを5GHzにする
+</h4>
+<div id="outline-text-headline-3" class="outline-text-4">
+<p>しかし、wifiにつながらない。いろいろ探して見つけたのは
+<a href="https://elementaryos.stackexchange.com/questions/28044/raspberry-pi-4-wifi-not-connecting-with-usb-3-ssd">Raspberry Pi 4 Wifi not connecting with USB 3 SSD</a>
+という質問の回答によると</p>
+<blockquote>
+<p>wifi 2.4 won&#39;t work when anything is plugged into USB3, but wifi 5.0 still works.</p>
+</blockquote>
+<p>ということらしく家のwifiを5GHzに変更したら無事wifiにつながった。
+そんなことあるんだ。</p>
+<p>
+ただ、この質問者(Wifi not connecting with USB 3 SSD)と異なり自分のラズパイはUSB3に接続してもwifi 5.0GHzにつながった。</p>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-4">
+<h4 id="headline-4">
+IP固定化
+</h4>
+<div id="outline-text-headline-4" class="outline-text-4">
+<p><a href="https://mugeek.hatenablog.com/entry/2019/05/27/230256">ラズベリーパイで固定IPアドレスを設定する</a>を参考に
+家のホームルーターのwifiのipアドレスを確認する。
+母艦windowsと同じwifiのためコマンドプロンプトで</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">ipconfig /all</code></pre></div>
+</div>
+<p>を実行。その一部からデフォルトゲートウェイとDNSサーバのipアドレスを確認。</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">Wireless LAN adapter Wi-Fi:
+
+   接続固有の DNS サフィックス . . . . .:
+   説明. . . . . . . . . . . . . . . . .: Intel(R) Dual Band Wireless-AC 3168
+   物理アドレス. . . . . . . . . . . . .: (hoge hoge)
+   DHCP 有効 . . . . . . . . . . . . . .: はい
+   自動構成有効. . . . . . . . . . . . .: はい
+   リンクローカル IPv6 アドレス. . . . .: fe80::64f8:c0d0:7ef2:78a5%13(優先)
+   IPv4 アドレス . . . . . . . . . . . .: 192.168.3.5(優先)
+   サブネット マスク . . . . . . . . . .: 255.255.255.0
+   リース取得. . . . . . . . . . . . . .: 2021年10月5日 20:28:21
+   リースの有効期限. . . . . . . . . . .: 2021年10月7日 8:20:47
+   デフォルト ゲートウェイ . . . . . . .: 192.168.3.1
+   DHCP サーバー . . . . . . . . . . . .: 192.168.3.1
+   DHCPv6 IAID . . . . . . . . . . . . .: (hoge hoge)
+   DHCPv6 クライアント DUID. . . . . . .: (hoge hoge)
+   DNS サーバー. . . . . . . . . . . . .: 192.168.3.1
+   NetBIOS over TCP/IP . . . . . . . . .: 有効</code></pre></div>
+</div>
+<p>
+でデフォルトゲートウェイを確認(192.168.3.1)。
+addressは適当に192.168.3.15/24に、
+DNSサーバはデフォルトゲートウェイと同じに設定。
+99-conf.yamlというファイルを作り以下のようにした。</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">network:
+    ethernets:
+        eth0:
+            dhcp4: true
+            optional: true
+    version: 2
+    wifis:
+        wlan0:
+            access-points:
+                myssido:
+                    password: &#34;password&#34;
+            dhcp4: false
+            addresses: [192.168.3.15/24]
+            gateway4: 192.168.3.1
+            nameservers:
+                addresses: [192.168.3.1]</code></pre></div>
+</div>
+<p>これを保存し、</p>
+<div class="src src-shell">
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo netplan apply</code></pre></div>
+</div>
+<p>をするとエラーが出る。
+原因は分からなかったが50-cloud-init.yamlを消すと今度はエラーが出ず、
+ipの固定化ができた。</p>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-4">
+<h4 id="headline-5">
+power management機能をオフにする
+</h4>
+<div id="outline-text-headline-5" class="outline-text-4">
+<p>ラズパイをWIFIだけで運用すると、
+1日ほどするとパワーセーブで途中でネットにつながらなくなるそうだ。</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ sudo iwconfig wlan0
+wlan0     IEEE 802.11  ESSID:&#34;SPWN_H37_F48F22&#34;  
+          Mode:Managed  Frequency:5.5 GHz  Access Point: 24:DA:33:F4:8F:22   
+          Bit Rate=24 Mb/s   Tx-Power=31 dBm   
+          Retry short limit:7   RTS thr:off   Fragment thr:off
+          Encryption key:off
+          Power Management:on
+          Link Quality=39/70  Signal level=-71 dBm  
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0</code></pre></div>
+</div>
+<p>上記のPower Management:onというのが該当箇所。</p>
+<p>
+そのため以下のように設定する。</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ sudo iwconfig wlan0 power off
+$ sudo iwconfig wlan0
+wlan0     IEEE 802.11  ESSID:&#34;SPWN_H37_F48F22&#34;  
+          Mode:Managed  Frequency:5.5 GHz  Access Point: 24:DA:33:F4:8F:22   
+          Bit Rate=180 Mb/s   Tx-Power=31 dBm   
+          Retry short limit:7   RTS thr:off   Fragment thr:off
+          Encryption key:off
+          Power Management:off
+          Link Quality=37/70  Signal level=-73 dBm  
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0</code></pre></div>
+</div>
+<p>
+これを再起動しても永続化するように、/etc/dhcpcd.exit-confを作り以下のように編集。</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">if [ &#34;$reason&#34; = &#34;PREINIT&#34; -a &#34;$interface&#34; = &#34;wlan0&#34; ]]; then
+    sudo iwconfig wlan0 power off
+fi</code></pre></div>
+</div>
+<p>
+参考</p>
+<ul>
+<li>
+<p><a href="https://qiita.com/winuim/items/cfe7e4aa1a32f788ead1">ラズパイのWiFi運用の為にpower managent機能をオフにする方法</a></p>
+</li>
+<li>
+<p><a href="https://hnw.hatenablog.com/entry/2020/10/11/134737">Raspberry Pi の Wi-Fi パワーマネジメントモードについて調べた</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-3">
+<h3 id="headline-6">
+3. mongoDBのインストール
+</h3>
+<div id="outline-text-headline-6" class="outline-text-3">
+<p>いよいよraspberry piへMongoDBの導入を行う。
+<a href="https://www.mongodb.com/developer/how-to/mongodb-on-raspberry-pi/">Install &amp; Configure MongoDB on the Raspberry Pi</a>を参考にした。
+実はこの記事は知っていたのだがあえて最新版のMongoDB 5系を入れたが、
+ラズパイではCPUのスペックが合わず動かなかった。
+この記事に沿って4.4系を入れるべき。</p>
+<div id="outline-container-headline-7" class="outline-4">
+<h4 id="headline-7">
+Install
+</h4>
+<div id="outline-text-headline-7" class="outline-text-4">
+<div class="src src-shell">
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># Install the MongoDB 4.4 GPG key:</span>
+wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc <span class="p">|</span> sudo apt-key add -
+<span class="c1"># Add the source location for the MongoDB packages:</span>
+<span class="nb">echo</span> <span class="s2">&#34;deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse&#34;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+<span class="c1"># Download the package details for the MongoDB packages:</span>
+sudo apt-get update
+<span class="c1"># Install MongoDB:</span>
+sudo apt-get install -y mongodb-org</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-4">
+<h4 id="headline-8">
+Run
+</h4>
+<div id="outline-text-headline-8" class="outline-text-4">
+<div class="src src-shell">
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># Ensure mongod config is picked up:</span>
+sudo systemctl daemon-reload
+<span class="c1"># Tell systemd to run mongod on reboot:</span>
+sudo systemctl <span class="nb">enable</span> mongod
+<span class="c1"># Start up mongod!</span>
+sudo systemctl start mongod</code></pre></div>
+</div>
+<p>
+これで起動した。起動確認。</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ sudo systemctl status mongod
+● mongod.service - MongoDB Database Server
+     Loaded: loaded (/lib/systemd/system/mongod.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2021-09-26 08:43:03 UTC; 14s ago
+       Docs: https://docs.mongodb.org/manual
+   Main PID: 2943 (mongod)
+     Memory: 59.0M
+     CGroup: /system.slice/mongod.service
+             └─2943 /usr/bin/mongod --config /etc/mongod.conf
+
+Sep 26 08:43:03 ubuntu systemd[1]: Started MongoDB Database Server.</code></pre></div>
+</div>
+<p>
+mongoとうつとMongoDBが触れるMongoShellが開ける</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ mongo
+MongoDB shell version v4.4.9
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&amp;gssapiServiceName=mongodb
+Implicit session: session { &#34;id&#34; : UUID(&#34;8b0c6a85-40e6-4b2c-abbc-7e1002d5ba3d&#34;) }
+MongoDB server version: 4.4.9
+Welcome to the MongoDB shell.
+For interactive help, type &#34;help&#34;.
+For more comprehensive documentation, see
+	https://docs.mongodb.com/
+Questions? Try the MongoDB Developer Community Forums
+	https://community.mongodb.com
+---
+The server generated these startup warnings when booting: 
+        2021-09-26T08:43:04.070+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+        2021-09-26T08:43:05.878+00:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB&#39;s free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+&gt;</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-4">
+<h4 id="headline-9">
+他の端末からラズパイ上のDBにアクセスする
+</h4>
+<div id="outline-text-headline-9" class="outline-text-4">
+<p>sshでubuntu(ラズパイ)に入ってDBを見ても良いのだが、外部からDBを直接操作できると便利。
+そこで他の端末からラズパイ上のDBにアクセスするための設定をする。</p>
+<p>
+/etc/mongod.confを設定する。</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text"># Change the bindIp to &#39;0.0.0.0&#39;:
+net:
+   port: 27017
+   bindIp: 0.0.0.0</code></pre></div>
+</div>
+<p>
+その後shellで以下を実行する。</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">sudo systemctl restart mongod
+sudo ufw allow 27017/tcp</code></pre></div>
+</div>
+<p>そうすると外部のwindows上のターミナルから以下のようにラズパイのDBにアクセスできている。</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ mongo --host 192.168.100.15
+MongoDB shell version v5.0.2
+connecting to: mongodb://192.168.100.15:27017/?compressors=disabled&amp;gssapiServiceName=mongodb
+Implicit session: session { &#34;id&#34; : UUID(&#34;5b66027f-4d5b-44ca-896b-2403cd6bd13f&#34;) }
+MongoDB server version: 4.4.9
+WARNING: shell and server versions do not match
+================
+Warning: the &#34;mongo&#34; shell has been superseded by &#34;mongosh&#34;,
+which delivers improved usability and compatibility.The &#34;mongo&#34; shell has been deprecated and will be removed in
+an upcoming release.
+We recommend you begin using &#34;mongosh&#34;.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting: 
+        2021-09-26T09:00:58.618+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+        2021-09-26T09:01:02.700+00:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB&#39;s free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-3">
+<h3 id="headline-10">
+まとめ
+</h3>
+<div id="outline-text-headline-10" class="outline-text-3">
+<p>以上でラズパイのUSB SSD boot設定、ubuntu server設定、MonogoDB設定までできた。
+結構大変だった。</p>
+</div>
+</div>
+
+        </div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="https://nogawafish.github.io/posts/2021/crypt_period/" class="block">暗号通貨の対数リターンの分布</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 - 2022 nogawafish
+  </p>
+</div>
+</div>
+  </footer>
+</body>
+
+</html>
