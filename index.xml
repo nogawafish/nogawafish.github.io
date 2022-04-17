@@ -6,16 +6,52 @@
     <description>Recent content on nogawafish</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+    <copyright>&amp;copy; 2021 - {currentyear} nogawafish
 </copyright>
-    <lastBuildDate>Sat, 05 Jun 2021 18:33:13 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Jun 2021 21:31:09 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>仮設設定</title>
+      <link>https://nogawafish.github.io/docs/trading/ml_trading/hypothesis/</link>
+      <pubDate>Sun, 13 Jun 2021 13:37:45 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/trading/ml_trading/hypothesis/</guid>
+      <description>まずはどんなパフォーマンスが欲しいかを決めます。 運用目標, 2. 目標利回り, 3. 許容リスク(=許容ドローダウン) シストレのススメ第1回 運用目標 問題設定にする</description>
+    </item>
+    
+    <item>
+      <title>Features</title>
+      <link>https://nogawafish.github.io/docs/trading/ml_trading/features/</link>
+      <pubDate>Sun, 13 Jun 2021 13:05:30 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/trading/ml_trading/features/</guid>
+      <description>特徴量生成 テクニカル ファンダメンタル 大口による仕込み 外部データ 金利 為替 雇用統計とか テキストデータ twitter news google trend</description>
+    </item>
+    
+    <item>
+      <title>Hugo Eureka サイトのコピーライトを変更する</title>
+      <link>https://nogawafish.github.io/docs/hugo/set_copyright/</link>
+      <pubDate>Sun, 06 Jun 2021 13:24:37 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/hugo/set_copyright/</guid>
+      <description>このサイト各ページ下部に書かれるコピーライトは、デフォルトではこのEurekaテーマの作者の方のコピーライトとなっており、「© 2021 C. Wang and R. Ma · Powered by the Eureka theme</description>
+    </item>
+    
+    <item>
+      <title>Labeling</title>
+      <link>https://nogawafish.github.io/docs/trading/ml_trading/labeling/</link>
+      <pubDate>Sun, 06 Jun 2021 10:17:33 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/trading/ml_trading/labeling/</guid>
+      <description>機械学習で投資するにあたりラベル作成を行う必要があります。 アセットマネージャーのためのファイナンス機械学習を参考にラベル作成をする手順についてまとめま</description>
+    </item>
+    
     <item>
       <title>pandas_datareader で株・為替・仮想通貨情報を取得</title>
       <link>https://nogawafish.github.io/docs/trading/data/pandas_datareader/</link>
       <pubDate>Sat, 05 Jun 2021 18:33:13 +0900</pubDate>
       
       <guid>https://nogawafish.github.io/docs/trading/data/pandas_datareader/</guid>
-      <description>pandas_datareaderというライブラリを使えば株価・為替・暗号通貨等のデータを 簡単に取得できます。 pandas_datareaderは実態</description>
+      <description>pandas_datareaderというライブラリを使えば株価・為替・暗号通貨等のデータを 簡単に取得できます。 pandas_datareaderの実態</description>
     </item>
     
     <item>
@@ -61,6 +97,51 @@
       
       <guid>https://nogawafish.github.io/docs/emacs/leaf/org/</guid>
       <description>org mode の設定。 (leaf org :config (leaf org-babel :config (org-babel-do-load-languages &#39;org-babel-load-languages &#39;((shell . t) (emacs-lisp . t) (lisp . t) (plantuml . t) (org . t) (python . t) (dot . t) (latex . t))) ))</description>
+    </item>
+    
+    <item>
+      <title>Training</title>
+      <link>https://nogawafish.github.io/docs/trading/ml_trading/training/</link>
+      <pubDate>Sun, 06 Jun 2021 10:39:57 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/trading/ml_trading/training/</guid>
+      <description>学習について</description>
+    </item>
+    
+    <item>
+      <title>暗号通貨の対数リターンの分布</title>
+      <link>https://nogawafish.github.io/posts/2021/crypt_period/</link>
+      <pubDate>Sun, 20 Jun 2021 21:31:09 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/posts/2021/crypt_period/</guid>
+      <description>暗号通貨BTCの価格の挙動に足の長さ(1分足、1時足、1日足、1週足等)による違いがあるのかを観察しました。 株価では価格の対数リターンが正規分布に近い</description>
+    </item>
+    
+    <item>
+      <title>Cryptowatchによる暗号通貨データ取得</title>
+      <link>https://nogawafish.github.io/docs/trading/data/cryptowatch/</link>
+      <pubDate>Sun, 13 Jun 2021 19:35:07 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/trading/data/cryptowatch/</guid>
+      <description>pandas-datareaderでは暗号通貨の分足・時足が取れないぽいのですが、 仮想通貨の分足・時足データを取るにはCryptowatchというサイ</description>
+    </item>
+    
+    <item>
+      <title>ベットサイズの決定</title>
+      <link>https://nogawafish.github.io/docs/trading/ml_trading/betting/</link>
+      <pubDate>Sat, 12 Jun 2021 15:52:28 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/trading/ml_trading/betting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>参考サイト</title>
+      <link>https://nogawafish.github.io/docs/trading/reference/site/</link>
+      <pubDate>Mon, 07 Jun 2021 08:16:29 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/trading/reference/site/</guid>
+      <description>bot開発全般 文系でもわかる！BitcoinのBOT自動売買トレードの始め方 Investment Tech Hack ライブラリ pybotters 自動売買するためのライブラリ。複数の取引所に対応しており</description>
     </item>
     
     <item>

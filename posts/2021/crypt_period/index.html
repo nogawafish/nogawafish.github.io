@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang='en' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>暗号通貨の対数リターンの分布 | nogawafish</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.0" />
+<link rel="stylesheet" href="https://nogawafish.github.io/css/eureka.min.css">
+<script defer src="https://nogawafish.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://nogawafish.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://nogawafish.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="暗号通貨BTCの価格の挙動に足の長さ(1分足、1時足、1日足、1週足等)による違いがあるのかを観察しました。 株価では価格の対数リターンが正規分布に近い">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://nogawafish.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"暗号通貨の対数リターンの分布",
+      "item":"https://nogawafish.github.io/posts/2021/crypt_period/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nogawafish.github.io/posts/2021/crypt_period/"
+    },
+    "headline": "暗号通貨の対数リターンの分布 | nogawafish","datePublished": "2021-06-20T21:31:09+09:00",
+    "dateModified": "2021-06-20T21:31:09+09:00",
+    "wordCount":  1110 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://nogawafish.github.io/images/icon.png"
+        }
+        },
+    "description": "暗号通貨BTCの価格の挙動に足の長さ(1分足、1時足、1日足、1週足等)による違いがあるのかを観察しました。 株価では価格の対数リターンが正規分布に近い"
+}
+</script><meta property="og:title" content="暗号通貨の対数リターンの分布 | nogawafish" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://nogawafish.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://nogawafish.github.io/posts/2021/crypt_period/" />
+
+
+
+
+<meta property="og:description" content="暗号通貨BTCの価格の挙動に足の長さ(1分足、1時足、1日足、1週足等)による違いがあるのかを観察しました。 株価では価格の対数リターンが正規分布に近い" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="nogawafish" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-06-20T21:31:09&#43;09:00" />
+
+
+<meta property="article:modified_time" content="2021-06-20T21:31:09&#43;09:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">nogawafish</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">暗号通貨の対数リターンの分布</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-06-20</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>3 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>暗号通貨BTCの価格の挙動に足の長さ(1分足、1時足、1日足、1週足等)による違いがあるのかを観察しました。
+株価では価格の対数リターンが正規分布に近いということは知られており、
+暗号通貨でも同様に対数リターンの分布を調べてみることにしました。</p>
+<p>暗号通貨BTCのUSDT建ての対数リターンの分布を、
+直近1年のデータで複数の時間足スケール(1min, 3min,&hellip;,1h,&hellip;1d,&hellip;,1week)に対して確認しました。</p>
+<h2 id="対数リターンはランダムウォークか">対数リターンはランダムウォークか</h2>
+<p>対数リターンがランダムウォークの場合、
+分布の標準偏差は測定時間間隔$t$の1/2乗のスケール則が成り立ちます。</p>
+<p>実際の価格の分布はランダムウォークに従っているのでしょうか。
+以下に複数の時間足スケールにおける価格のリターンの分布を示します。
+<img src="return_dist-binance-btcusdt.png" alt=""></p>
+<p>上図・下図ともには横軸:時間足スケール(対数表示)、縦軸:対数リターンとなっています。
+上図は各時間足スケールにおける対数リターンの散布図、
+下図は各時間足スケールにおける対数リターンの標準偏差です。
+下図は両対数プロットになっており、$y=ax^p$に対してフィッティングした線も載せています。
+フィッティング結果$p=0.47$は0.5に近い値であり、
+ある程度ランダムウォークにに近い挙動を取ることが確認できます。
+また、時間間隔によってフィッティング線の上または下にでており、
+対数リターンの分散の大きな/小さな時間間隔があることが確認できます。</p>
+<h2 id="各時間間隔における234次モーメント量の確認">各時間間隔における2,3,4次モーメント量の確認</h2>
+<p>各時間間隔(1min, 3min,&hellip;,1h,&hellip;1d,&hellip;,1week)における対数リターンの分布をヒストグラムで表示します。</p>
+<p>そのまま表示すると時間が長いほど横に広い分布になるだけなので、
+縮尺が同じになるように調節します。
+縮尺としてランダムウォーク仮設に従い、対数リターンに$(1/t)^{1/2}$をかけます。
+この仮設がある程度正しそうなことは、前節で確かめています。</p>
+<p>また、図中のmoment=()の中身は2,3,4次モーメントとなっています。
+1次モーメントは明らかに0なので省略しています。</p>
+<p><img src="logreturn-binance-btcusdt.png" alt=""></p>
+<p>その結果2次モーメントは15分間隔で最大となりました。
+15分間隔のデータで分散が最大となる理由は不明です。
+理由はわからないですが、
+ボラティリティは高いが利益を求めたい戦略を適用したい場合、
+15分間隔近辺のトレードが有効になると予想しています。</p>
+<p>4次モーメントを見ると、時間間隔が短くなるほど値が大きい(=正規分布からのずれが大きい)ため、
+高頻度取引の方が収益機会は多い可能性があります。</p>
+
+        </div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="https://nogawafish.github.io/posts/2021/start-blog/" class="block">Blog 開始(Hugo Eureka)</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 - 2021 nogawafish
+  </p>
+</div>
+</div>
+  </footer>
+</body>
+
+</html>

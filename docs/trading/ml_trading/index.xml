@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ML Trading on nogawafish</title>
+    <link>https://nogawafish.github.io/docs/trading/ml_trading/</link>
+    <description>Recent content in ML Trading on nogawafish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2021 - {currentyear} nogawafish
+</copyright>
+    <lastBuildDate>Sun, 06 Jun 2021 11:36:00 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/docs/trading/ml_trading/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>仮設設定</title>
+      <link>https://nogawafish.github.io/docs/trading/ml_trading/hypothesis/</link>
+      <pubDate>Sun, 13 Jun 2021 13:37:45 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/trading/ml_trading/hypothesis/</guid>
+      <description>まずはどんなパフォーマンスが欲しいかを決めます。 運用目標, 2. 目標利回り, 3. 許容リスク(=許容ドローダウン) シストレのススメ第1回 運用目標 問題設定にする</description>
+    </item>
+    
+    <item>
+      <title>Features</title>
+      <link>https://nogawafish.github.io/docs/trading/ml_trading/features/</link>
+      <pubDate>Sun, 13 Jun 2021 13:05:30 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/trading/ml_trading/features/</guid>
+      <description>特徴量生成 テクニカル ファンダメンタル 大口による仕込み 外部データ 金利 為替 雇用統計とか テキストデータ twitter news google trend</description>
+    </item>
+    
+    <item>
+      <title>Labeling</title>
+      <link>https://nogawafish.github.io/docs/trading/ml_trading/labeling/</link>
+      <pubDate>Sun, 06 Jun 2021 10:17:33 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/trading/ml_trading/labeling/</guid>
+      <description>機械学習で投資するにあたりラベル作成を行う必要があります。 アセットマネージャーのためのファイナンス機械学習を参考にラベル作成をする手順についてまとめま</description>
+    </item>
+    
+    <item>
+      <title>Training</title>
+      <link>https://nogawafish.github.io/docs/trading/ml_trading/training/</link>
+      <pubDate>Sun, 06 Jun 2021 10:39:57 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/trading/ml_trading/training/</guid>
+      <description>学習について</description>
+    </item>
+    
+    <item>
+      <title>ベットサイズの決定</title>
+      <link>https://nogawafish.github.io/docs/trading/ml_trading/betting/</link>
+      <pubDate>Sat, 12 Jun 2021 15:52:28 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/trading/ml_trading/betting/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

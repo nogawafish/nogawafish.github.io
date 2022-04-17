@@ -6,9 +6,18 @@
     <description>Recent content in Posts on nogawafish</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+    <copyright>&amp;copy; 2021 - {currentyear} nogawafish
 </copyright>
-    <lastBuildDate>Sat, 22 May 2021 16:37:36 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Jun 2021 21:31:09 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>暗号通貨の対数リターンの分布</title>
+      <link>https://nogawafish.github.io/posts/2021/crypt_period/</link>
+      <pubDate>Sun, 20 Jun 2021 21:31:09 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/posts/2021/crypt_period/</guid>
+      <description>暗号通貨BTCの価格の挙動に足の長さ(1分足、1時足、1日足、1週足等)による違いがあるのかを観察しました。 株価では価格の対数リターンが正規分布に近い</description>
+    </item>
+    
     <item>
       <title>Blog 開始(Hugo Eureka)</title>
       <link>https://nogawafish.github.io/posts/2021/start-blog/</link>

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang='en' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Cryptowatchによる暗号通貨データ取得 | Trading | nogawafish</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.0" />
+<link rel="stylesheet" href="https://nogawafish.github.io/css/eureka.min.css">
+<script defer src="https://nogawafish.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://nogawafish.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://nogawafish.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="pandas-datareaderでは暗号通貨の分足・時足が取れないぽいのですが、 仮想通貨の分足・時足データを取るにはCryptowatchというサイ">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Docs",
+      "item":"https://nogawafish.github.io/docs/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Trading",
+      "item":"https://nogawafish.github.io/docs/trading/"},{
+      "@type": "ListItem",
+      "position": 3 ,
+      "name":"Data",
+      "item":"https://nogawafish.github.io/docs/trading/data/"},{
+      "@type": "ListItem",
+      "position": 4 ,
+      "name":"Cryptowatchによる暗号通貨データ取得",
+      "item":"https://nogawafish.github.io/docs/trading/data/cryptowatch/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nogawafish.github.io/docs/trading/data/cryptowatch/"
+    },
+    "headline": "Cryptowatchによる暗号通貨データ取得 | Trading | nogawafish","datePublished": "2021-06-13T19:35:07+09:00",
+    "dateModified": "2021-06-13T19:35:07+09:00",
+    "wordCount":  913 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://nogawafish.github.io/images/icon.png"
+        }
+        },
+    "description": "pandas-datareaderでは暗号通貨の分足・時足が取れないぽいのですが、 仮想通貨の分足・時足データを取るにはCryptowatchというサイ"
+}
+</script><meta property="og:title" content="Cryptowatchによる暗号通貨データ取得 | Trading | nogawafish" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://nogawafish.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://nogawafish.github.io/docs/trading/data/cryptowatch/" />
+
+
+
+
+<meta property="og:description" content="pandas-datareaderでは暗号通貨の分足・時足が取れないぽいのですが、 仮想通貨の分足・時足データを取るにはCryptowatchというサイ" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="nogawafish" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-06-13T19:35:07&#43;09:00" />
+
+
+<meta property="article:modified_time" content="2021-06-13T19:35:07&#43;09:00" />
+
+
+
+<meta property="article:section" content="docs" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">nogawafish</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Posts</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="lg:pt-12">
+    <div class="flex flex-col md:flex-row bg-secondary-bg rounded">
+        <div class="md:w-1/4 lg:w-1/5 border-r">
+            <div class="sticky top-16 pt-6">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="sidebar-title" class="md:hidden mx-4 px-2 pt-4 pb-2 md:border-b text-tertiary-text md:text-primary-text">
+    <span class="font-semibold">Table of Contents</span>
+    <i class="fas fa-caret-right ml-1"></i>
+</div>
+
+<div id="sidebar-toc"
+    class="hidden md:block overflow-y-auto mx-6 md:mx-0 pr-6 pt-2 md:max-h-doc-sidebar bg-primary-bg md:bg-transparent">
+    <div class="flex flex-wrap ml-4 -mr-2 p-2 bg-secondary-bg md:bg-primary-bg rounded">
+        <a class=" hover:text-eureka"
+            href="https://nogawafish.github.io/docs/trading/">Trading</a>
+        
+        
+        
+
+
+    </div>
+    
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class=" pb-2 ">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/data/">Data</a>
+        </div>
+        
+        
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/data/pandas_datareader/">pandas_datareader で株・為替・仮想通貨情報を取得</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" text-eureka  hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/data/cryptowatch/">Cryptowatchによる暗号通貨データ取得</a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class=" pb-2 ">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/ml_trading/">ML Trading</a>
+        </div>
+        
+        
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/ml_trading/hypothesis/">仮設設定</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/ml_trading/features/">Features</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/ml_trading/labeling/">Labeling</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/ml_trading/training/">Training</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/ml_trading/betting/">ベットサイズの決定</a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class=" pb-2 ">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/reference/">Reference</a>
+        </div>
+        
+        
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/reference/site/">参考サイト</a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+        
+    </li>
+    
+    
+</ul>
+
+</div>
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+        <div class="w-full md:w-3/4 lg:w-4/5 pb-8 pt-2 md:pt-8">
+            <div class="w-full lg:w-3/4 pl-6 ml-0 mr-auto">
+                <h1 class="font-bold text-3xl text-primary-text">Cryptowatchによる暗号通貨データ取得</h1>
+                <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-06-13</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+            </div>
+            <div class="flex">
+                <div class="w-full lg:w-3/4 px-6">
+                    
+                    
+                    <div class="content">
+                        
+<p>
+pandas-datareaderでは暗号通貨の分足・時足が取れないぽいのですが、
+仮想通貨の分足・時足データを取るにはCryptowatchというサイトのapiを使えば
+取得できることが分かりました。</p>
+<div id="outline-container-headline-1" class="outline-3">
+<h3 id="headline-1">
+Cryptowatchとは
+</h3>
+<div id="outline-text-headline-1" class="outline-text-3">
+<blockquote>
+<p>Cryptowatch is a real-time crypto markets platform. 
+We connect you to the global crypto markets with tools that enable research, 
+analysis, monitoring, and order execution.   </p>
+</blockquote>
+<p>と<a href="https://docs.cryptowat.ch/rest-api/">API reference</a>では言っています。</p>
+<p>
+見たところ興味のあるデータとしては
+OHLC Candlsticks, Order Book, Trades(約定履歴)などが取得できるようです。</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-3">
+<h3 id="headline-2">
+OHLC取得確認
+</h3>
+<div id="outline-text-headline-2" class="outline-text-3">
+<p>bitflyer, btcjpyの現時刻以降の日足OHLC(Open High Low Close)を得る例を実行します。
+データ量が多くても見にくいので現時刻以降のデータを取ります。</p>
+<p>
+仮想環境を起動</p>
+<div class="src src-elisp">
+<div class="highlight"><pre class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nv">pyvenv-workon</span> <span class="s">&#34;nogawafishSite-gnCTSypq&#34;</span><span class="p">)</span></code></pre></div>
+</div>
+<p>
+requestsライブラリでAPIを叩く</p>
+<div class="src src-python">
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span></code></pre></div>
+</div>
+<div class="src src-python">
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">now_unix_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+<span class="c1"># リクエスト実行</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">&#34;https://api.cryptowat.ch/markets/bitflyer/btcjpy/&#34;</span>
+    <span class="n">f</span><span class="s2">&#34;ohlc?periods=86400&amp;after={now_unix_time}&#34;</span>
+<span class="p">)</span>
+<span class="c1"># 時刻確認</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;unix time:{now_unix_time}&#34;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;jst      :{datetime.fromtimestamp(now_unix_time)}&#34;</span><span class="p">)</span></code></pre></div>
+</div>
+<pre class="example">
+unix time:1623584255
+jst      :2021-06-13 20:37:35
+</pre>
+<p>
+このリクエスト結果を確認します。</p>
+<div class="src src-python">
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pprint</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="n">sort_dicts</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span></code></pre></div>
+</div>
+<pre class="example">
+{&#39;result&#39;: {&#39;86400&#39;: # 86400s = 1day 
+                      [[ 
+                       1623628800, # CloseTime 
+                       3904362,    # Open
+                       3970000,    # High
+                       3824501,    # Low
+                       3943614,    # Close
+                       1648.19183709, # Volume
+                       6415397989.940934 # QuoteVolume
+		       ]]},
+ &#39;allowance&#39;: {&#39;cost&#39;: 0.015,
+               &#39;remaining&#39;: 9.91,
+               &#39;upgrade&#39;: &#39;For unlimited API access, create an account at &#39;
+                          &#39;https://cryptowat.ch&#39;}}
+</pre>
+<p>と上のようなjson結果が得られます。</p>
+<p>
+ちなみにclose timeを標準時間に変換していつのことか確認します。</p>
+<div class="src src-python">
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;jst      :{datetime.fromtimestamp(1623628800)}&#34;</span><span class="p">)</span></code></pre></div>
+</div>
+<pre class="example">
+jst      :2021-06-14 09:00:00
+</pre>
+<p>
+現時刻(6/13 20:37)以降のbitflyer/btcjpyの日足をリクエストし、
+Close time:1623628800(6/14 9:00)の日足が得られました。
+最初バグかと思いましたが、そうではなく日足のクローズが9:00で、
+現時刻までの価格で暫定的なohclを出してくれているのだと思います。</p>
+<div id="outline-container-headline-3" class="outline-4">
+<h4 id="headline-3">
+コストに注意
+</h4>
+<div id="outline-text-headline-3" class="outline-text-4">
+<p>登録なしユーザーはリクエスト量に上限があります。
+&#39;allowance&#39;にその情報が送られてくるようです。
+&#39;cost&#39;は一回のリクエストにかかるコストで、
+登録なしユーザーは&#39;remaining&#39;が切れないようにリクエスト回数を注意する必要があります。
+この&#39;allowance&#39;は<a href="https://docs.cryptowat.ch/rest-api/rate-limit">24時間ごとにリセットされる</a>そうです。</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+他のデータを取得する場合
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<p>&#34;https://api.cryptowat.ch/markets/bitflyer/btcjpy/ohlc?periods=86400&amp;after=1623628800&#34;
+の条件をいろいろ変えることでいろんなデータが得られるようです。</p>
+<p>
+詳細は<a href="https://docs.cryptowat.ch/rest-api/">API reference</a>に詳しいのでそちらを参照ください。</p>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
+参考
+</h3>
+<div id="outline-text-headline-5" class="outline-text-3">
+<p><a href="https://ryota-trade.com/?p=140">「API」って何？仮想通貨の価格データをAPIで取得してみよう</a></p>
+</div>
+</div>
+
+                    </div>
+                    
+                    
+
+                    
+
+
+
+                    
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Previous</span>
+        <a href="https://nogawafish.github.io/docs/trading/data/pandas_datareader/" class="block">pandas_datareader で株・為替・仮想通貨情報を取得</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+    </div>
+</div>
+
+                    
+
+
+
+                </div>
+                
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        hljs.initHighlightingOnLoad();
+        changeSidebarHeight();
+        switchDocToc();
+    })
+</script>
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 - 2021 nogawafish
+  </p>
+</div>
+</div>
+  </footer>
+</body>
+
+</html>

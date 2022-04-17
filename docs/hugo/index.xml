@@ -6,8 +6,17 @@
     <description>Recent content in Hugo on nogawafish</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+    <copyright>&amp;copy; 2021 - {currentyear} nogawafish
 </copyright>
     <lastBuildDate>Sat, 22 May 2021 15:44:16 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/docs/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Eureka サイトのコピーライトを変更する</title>
+      <link>https://nogawafish.github.io/docs/hugo/set_copyright/</link>
+      <pubDate>Sun, 06 Jun 2021 13:24:37 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/docs/hugo/set_copyright/</guid>
+      <description>このサイト各ページ下部に書かれるコピーライトは、デフォルトではこのEurekaテーマの作者の方のコピーライトとなっており、「© 2021 C. Wang and R. Ma · Powered by the Eureka theme</description>
+    </item>
+    
   </channel>
 </rss>

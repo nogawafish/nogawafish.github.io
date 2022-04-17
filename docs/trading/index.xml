@@ -6,17 +6,8 @@
     <description>Recent content in Trading on nogawafish</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+    <copyright>&amp;copy; 2021 - {currentyear} nogawafish
 </copyright>
     <lastBuildDate>Sat, 22 May 2021 15:54:27 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/docs/trading/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>pandas_datareader で株・為替・仮想通貨情報を取得</title>
-      <link>https://nogawafish.github.io/docs/trading/data/pandas_datareader/</link>
-      <pubDate>Sat, 05 Jun 2021 18:33:13 +0900</pubDate>
-      
-      <guid>https://nogawafish.github.io/docs/trading/data/pandas_datareader/</guid>
-      <description>pandas_datareaderというライブラリを使えば株価・為替・暗号通貨等のデータを 簡単に取得できます。 pandas_datareaderは実態</description>
-    </item>
-    
   </channel>
 </rss>

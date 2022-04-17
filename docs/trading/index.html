@@ -58,7 +58,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="https://nogawafish.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png">
 
 <meta name="description"
-  content="この文章ではトレードについての調査について記します。 自分がやろうと思っているのは、主に以下のような手法を考えています。 過去のデータに基づき意思決定ルー">
+  content="この文章ではトレードについての調査について記します。 再現性があるトレード手法として以下が挙げられると思います。 過去のデータに基づき意思決定ルールを作成">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -85,7 +85,7 @@
         "@type": "WebPage",
         "@id": "https://nogawafish.github.io/docs/trading/"
     },
-    "headline": "Trading | nogawafish","wordCount":  426 ,
+    "headline": "Trading | nogawafish","wordCount":  455 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -94,7 +94,7 @@
             "url": "https://nogawafish.github.io/images/icon.png"
         }
         },
-    "description": "この文章ではトレードについての調査について記します。 自分がやろうと思っているのは、主に以下のような手法を考えています。 過去のデータに基づき意思決定ルー"
+    "description": "この文章ではトレードについての調査について記します。 再現性があるトレード手法として以下が挙げられると思います。 過去のデータに基づき意思決定ルールを作成"
 }
 </script><meta property="og:title" content="Trading | nogawafish" />
 <meta property="og:type" content="website" />
@@ -240,10 +240,138 @@
     
     
     <li class="py-2">
+        <div class=" pb-2 ">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/data/">Data</a>
+        </div>
+        
+        
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
         <div class="">
             <a class=" hover:text-eureka"
                 href="https://nogawafish.github.io/docs/trading/data/pandas_datareader/">pandas_datareader で株・為替・仮想通貨情報を取得</a>
         </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/data/cryptowatch/">Cryptowatchによる暗号通貨データ取得</a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class=" pb-2 ">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/ml_trading/">ML Trading</a>
+        </div>
+        
+        
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/ml_trading/hypothesis/">仮設設定</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/ml_trading/features/">Features</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/ml_trading/labeling/">Labeling</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/ml_trading/training/">Training</a>
+        </div>
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/ml_trading/betting/">ベットサイズの決定</a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
+        
+    </li>
+    
+    
+    
+    
+    <li class="py-2">
+        <div class=" pb-2 ">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/reference/">Reference</a>
+        </div>
+        
+        
+<ul class="pl-6">
+    
+    
+    
+    <li class="py-2">
+        <div class="">
+            <a class=" hover:text-eureka"
+                href="https://nogawafish.github.io/docs/trading/reference/site/">参考サイト</a>
+        </div>
+        
+    </li>
+    
+    
+</ul>
+
         
     </li>
     
@@ -281,7 +409,7 @@
                     
                     <div class="content">
                         <p>この文章ではトレードについての調査について記します。</p>
-<p>自分がやろうと思っているのは、主に以下のような手法を考えています。</p>
+<p>再現性があるトレード手法として以下が挙げられると思います。</p>
 <ol>
 <li>過去のデータに基づき意思決定ルールを作成する
 <ol>
@@ -301,14 +429,27 @@
 <p>これらに必要になる情報・技術・知恵として、</p>
 <ul>
 <li>過去のデータ</li>
-<li>バックテストツール</li>
-<li>アルゴリズム作成</li>
+<li>アルゴリズム作成・バックテスト
+<ul>
+<li>仮設</li>
+<li>ラベル作成</li>
+<li>前処理</li>
+<li>学習
+<ul>
+<li>アップ・ダウン予測</li>
+<li>ベット数決定</li>
+</ul>
+</li>
+<li>交差検証</li>
+<li>評価指標</li>
+</ul>
+</li>
 <li>資金管理</li>
 <li>ポートフォリオ管理</li>
 <li>自動発注プログラム</li>
-<li>その金融商品の性質</li>
+<li>金融商品の性質への理解</li>
 </ul>
-<p>だと思っています。</p>
+<p>を調査します。</p>
 
                     </div>
                     
@@ -355,9 +496,10 @@
   </main>
   <footer class="pl-scrollbar">
     <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
- &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
-</div></div>
+    <p class="text-sm text-tertiary-text">&copy; 2021 - 2021 nogawafish
+  </p>
+</div>
+</div>
   </footer>
 </body>
 
