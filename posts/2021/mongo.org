@@ -1,0 +1,322 @@
+---
+title: "raspberry pi 4BでUbuntu Seruverをusb bootしMongoDBをインストール"
+date: 2021-09-20T11:10:26+09:00
+draft: false
+---
+
+MongoDBをraspberry piで使うため設定を行ったので備忘録。
+
+1. usb bootの設定
+2. ubuntu server の設定
+3. mongoDBのインストール
+
+** 1. usb bootの設定
+母艦のwindowsでRasberyy Pi Imagerを使い、raspberry Pi OSをSDカードにインストール。
+ラズパイにSDカードを挿入し、起動。
+#+begin_src shell
+sudo apt update
+sudo apt upgrade
+#+end_src
+ブートローダを最新にする。
+#+begin_src 
+ls /lib/firmware/raspberrypi/bootloader/stable/
+;pieeprom-2021-x-y.bin(最新版)
+sudo rpi-eeprom-update -d -f /lib/firmware/raspberrypi/bootloader/stable/pieeprom-2021-x-y.bin 
+reboot
+#+end_src
+
+起動順番を変更する。
+#+begin_src 
+sudo raspi-config
+#+end_src
+"Advanced Options"->"Boot Order">"USB Boot"を押す。
+
+自分の環境ではここで"No EEPROM bin file found for version 2020-05-27 - aborting"
+というエラーが出現したので、
+8 Updateを選択して最新バージョンにアップデート。
+
+再起動して以下を実行。
+#+begin_src 
+sudo raspi-config
+#+end_src
+"Advanced Options"->"Boot Order">"USB Boot"を押すと、
+今度は無事設定が完了した。
+rebootしろと出てくるので再起動する。
+
+これで無事usbにインストールされたOSが起動時に優先されるようになった。
+
+参考
+- [[https://gadgetrip.jp/2021/05/raspberry_pi4_usb_boot/][SDカード不要？ 「Raspberry Pi 4」をUSBブートさせる方法について]]
+- [[https://ameblo.jp/mongol-sky/entry-12622132079.html][Raspberry Pi OSが2020-08-20でLinuxカーネルバージョン5.4.51に]]
+
+** 2. ubuntu server の設定
+最初はubuntu server 20.04をSSDにインストールしていたが、これでは起動しない。
+調べたら[[https://www.raspberrypi.org/forums/viewtopic.php?t=295609][Ubuntu Server 20.04がUSB bootで起動しない現象が報告]]されていた。
+また、バージョン20.10では上手く行ったと報告があった。
+raspberry pi Imagerには20.10はなく21.04があったため、
+今回はUbuntu Server 21.04 64bitをSSDに書き込む。
+後のmongoDBとの兼ね合いで64bit版を選択することを間違えないようにする。
+
+ssdを一回windowsから抜きもう一度挿す。
+network-config.yamlを編集しwifiの設定をしておく。
+#+begin_src 
+wifis:
+  wlan0:
+    dhcp4: true
+    optional: true
+    access-points:
+      "myssid":
+        password: "password"
+#+end_src
+
+SSDをラズパイのUSB3.0の穴(青い方)に差して起動したところ無事起動することを確認した。
+
+*** 家のwifiを5GHzにする
+しかし、wifiにつながらない。いろいろ探して見つけたのは
+[[https://elementaryos.stackexchange.com/questions/28044/raspberry-pi-4-wifi-not-connecting-with-usb-3-ssd][Raspberry Pi 4 Wifi not connecting with USB 3 SSD]]
+という質問の回答によると
+#+begin_quote
+wifi 2.4 won't work when anything is plugged into USB3, but wifi 5.0 still works.
+#+end_quote
+ということらしく家のwifiを5GHzに変更したら無事wifiにつながった。
+そんなことあるんだ。
+
+ただ、この質問者(Wifi not connecting with USB 3 SSD)と異なり自分のラズパイはUSB3に接続してもwifi 5.0GHzにつながった。
+
+*** IP固定化
+[[https://mugeek.hatenablog.com/entry/2019/05/27/230256][ラズベリーパイで固定IPアドレスを設定する]]を参考に
+家のホームルーターのwifiのipアドレスを確認する。
+母艦windowsと同じwifiのためコマンドプロンプトで
+#+begin_src 
+ipconfig /all
+#+end_src
+を実行。その一部からデフォルトゲートウェイとDNSサーバのipアドレスを確認。
+#+begin_src 
+Wireless LAN adapter Wi-Fi:
+
+   接続固有の DNS サフィックス . . . . .:
+   説明. . . . . . . . . . . . . . . . .: Intel(R) Dual Band Wireless-AC 3168
+   物理アドレス. . . . . . . . . . . . .: (hoge hoge)
+   DHCP 有効 . . . . . . . . . . . . . .: はい
+   自動構成有効. . . . . . . . . . . . .: はい
+   リンクローカル IPv6 アドレス. . . . .: fe80::64f8:c0d0:7ef2:78a5%13(優先)
+   IPv4 アドレス . . . . . . . . . . . .: 192.168.3.5(優先)
+   サブネット マスク . . . . . . . . . .: 255.255.255.0
+   リース取得. . . . . . . . . . . . . .: 2021年10月5日 20:28:21
+   リースの有効期限. . . . . . . . . . .: 2021年10月7日 8:20:47
+   デフォルト ゲートウェイ . . . . . . .: 192.168.3.1
+   DHCP サーバー . . . . . . . . . . . .: 192.168.3.1
+   DHCPv6 IAID . . . . . . . . . . . . .: (hoge hoge)
+   DHCPv6 クライアント DUID. . . . . . .: (hoge hoge)
+   DNS サーバー. . . . . . . . . . . . .: 192.168.3.1
+   NetBIOS over TCP/IP . . . . . . . . .: 有効
+#+end_src
+
+
+でデフォルトゲートウェイを確認(192.168.3.1)。
+addressは適当に192.168.3.15/24に、
+DNSサーバはデフォルトゲートウェイと同じに設定。
+99-conf.yamlというファイルを作り以下のようにした。
+#+begin_src 
+network:
+    ethernets:
+        eth0:
+            dhcp4: true
+            optional: true
+    version: 2
+    wifis:
+        wlan0:
+            access-points:
+                myssido:
+                    password: "password"
+            dhcp4: false
+            addresses: [192.168.3.15/24]
+            gateway4: 192.168.3.1
+            nameservers:
+                addresses: [192.168.3.1]
+
+#+end_src
+これを保存し、
+#+begin_src shell
+sudo netplan apply
+#+end_src
+をするとエラーが出る。
+原因は分からなかったが50-cloud-init.yamlを消すと今度はエラーが出ず、
+ipの固定化ができた。
+
+
+
+*** power management機能をオフにする
+ラズパイをWIFIだけで運用すると、
+1日ほどするとパワーセーブで途中でネットにつながらなくなるそうだ。
+
+#+begin_src 
+$ sudo iwconfig wlan0
+wlan0     IEEE 802.11  ESSID:"SPWN_H37_F48F22"  
+          Mode:Managed  Frequency:5.5 GHz  Access Point: 24:DA:33:F4:8F:22   
+          Bit Rate=24 Mb/s   Tx-Power=31 dBm   
+          Retry short limit:7   RTS thr:off   Fragment thr:off
+          Encryption key:off
+          Power Management:on
+          Link Quality=39/70  Signal level=-71 dBm  
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+#+end_src
+上記のPower Management:onというのが該当箇所。
+
+そのため以下のように設定する。
+#+begin_src 
+$ sudo iwconfig wlan0 power off
+$ sudo iwconfig wlan0
+wlan0     IEEE 802.11  ESSID:"SPWN_H37_F48F22"  
+          Mode:Managed  Frequency:5.5 GHz  Access Point: 24:DA:33:F4:8F:22   
+          Bit Rate=180 Mb/s   Tx-Power=31 dBm   
+          Retry short limit:7   RTS thr:off   Fragment thr:off
+          Encryption key:off
+          Power Management:off
+          Link Quality=37/70  Signal level=-73 dBm  
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+#+end_src
+
+これを再起動しても永続化するように、/etc/dhcpcd.exit-confを作り以下のように編集。
+#+begin_src 
+if [ "$reason" = "PREINIT" -a "$interface" = "wlan0" ]]; then
+    sudo iwconfig wlan0 power off
+fi
+#+end_src
+
+参考
+- [[https://qiita.com/winuim/items/cfe7e4aa1a32f788ead1][ラズパイのWiFi運用の為にpower managent機能をオフにする方法]]
+- [[https://hnw.hatenablog.com/entry/2020/10/11/134737][Raspberry Pi の Wi-Fi パワーマネジメントモードについて調べた]]
+
+** 3. mongoDBのインストール
+いよいよraspberry piへMongoDBの導入を行う。
+[[https://www.mongodb.com/developer/how-to/mongodb-on-raspberry-pi/][Install & Configure MongoDB on the Raspberry Pi]]を参考にした。
+実はこの記事は知っていたのだがあえて最新版のMongoDB 5系を入れたが、
+ラズパイではCPUのスペックが合わず動かなかった。
+この記事に沿って4.4系を入れるべき。
+
+*** Install
+#+begin_src shell
+# Install the MongoDB 4.4 GPG key:
+wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+# Add the source location for the MongoDB packages:
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+# Download the package details for the MongoDB packages:
+sudo apt-get update
+# Install MongoDB:
+sudo apt-get install -y mongodb-org
+#+end_src
+
+*** Run
+#+begin_src shell
+# Ensure mongod config is picked up:
+sudo systemctl daemon-reload
+# Tell systemd to run mongod on reboot:
+sudo systemctl enable mongod
+# Start up mongod!
+sudo systemctl start mongod    
+#+end_src
+
+これで起動した。起動確認。
+#+begin_src 
+$ sudo systemctl status mongod
+● mongod.service - MongoDB Database Server
+     Loaded: loaded (/lib/systemd/system/mongod.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2021-09-26 08:43:03 UTC; 14s ago
+       Docs: https://docs.mongodb.org/manual
+   Main PID: 2943 (mongod)
+     Memory: 59.0M
+     CGroup: /system.slice/mongod.service
+             └─2943 /usr/bin/mongod --config /etc/mongod.conf
+
+Sep 26 08:43:03 ubuntu systemd[1]: Started MongoDB Database Server.
+#+end_src
+
+mongoとうつとMongoDBが触れるMongoShellが開ける
+#+begin_src 
+$ mongo
+MongoDB shell version v4.4.9
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("8b0c6a85-40e6-4b2c-abbc-7e1002d5ba3d") }
+MongoDB server version: 4.4.9
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+	https://docs.mongodb.com/
+Questions? Try the MongoDB Developer Community Forums
+	https://community.mongodb.com
+---
+The server generated these startup warnings when booting: 
+        2021-09-26T08:43:04.070+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+        2021-09-26T08:43:05.878+00:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> 
+#+end_src
+
+*** 他の端末からラズパイ上のDBにアクセスする
+sshでubuntu(ラズパイ)に入ってDBを見ても良いのだが、外部からDBを直接操作できると便利。
+そこで他の端末からラズパイ上のDBにアクセスするための設定をする。
+
+/etc/mongod.confを設定する。
+#+begin_src 
+# Change the bindIp to '0.0.0.0':
+net:
+   port: 27017
+   bindIp: 0.0.0.0
+#+end_src
+
+その後shellで以下を実行する。
+#+begin_src 
+sudo systemctl restart mongod
+sudo ufw allow 27017/tcp
+#+end_src
+そうすると外部のwindows上のターミナルから以下のようにラズパイのDBにアクセスできている。
+#+begin_src 
+$ mongo --host 192.168.100.15
+MongoDB shell version v5.0.2
+connecting to: mongodb://192.168.100.15:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("5b66027f-4d5b-44ca-896b-2403cd6bd13f") }
+MongoDB server version: 4.4.9
+WARNING: shell and server versions do not match
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+We recommend you begin using "mongosh".
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting: 
+        2021-09-26T09:00:58.618+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+        2021-09-26T09:01:02.700+00:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---    
+#+end_src
+
+** まとめ
+以上でラズパイのUSB SSD boot設定、ubuntu server設定、MonogoDB設定までできた。
+結構大変だった。
