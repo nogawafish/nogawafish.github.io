@@ -8,7 +8,7 @@
     <language>en</language>
     <copyright>&amp;copy; 2021 - {currentyear} nogawafish
 </copyright>
-    <lastBuildDate>Mon, 20 Sep 2021 11:10:26 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 May 2022 20:37:22 +0900</lastBuildDate><atom:link href="https://nogawafish.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>仮設設定</title>
       <link>https://nogawafish.github.io/docs/trading/ml_trading/hypothesis/</link>
@@ -106,6 +106,15 @@
       
       <guid>https://nogawafish.github.io/docs/trading/ml_trading/training/</guid>
       <description>学習について</description>
+    </item>
+    
+    <item>
+      <title>THE BITCOIN STANDARD</title>
+      <link>https://nogawafish.github.io/posts/2022/bitcoin_standard/</link>
+      <pubDate>Mon, 23 May 2022 20:37:22 +0900</pubDate>
+      
+      <guid>https://nogawafish.github.io/posts/2022/bitcoin_standard/</guid>
+      <description>書籍「ビットコイン・スタンダード お金が変わると世界が変わる」を読んだ。 石貨・ビーズ、金、法定通貨、ビットコインが本書では貨幣の例として出てくる。 これら</description>
     </item>
     
     <item>

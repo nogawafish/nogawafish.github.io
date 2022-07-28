@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang='en' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>THE BITCOIN STANDARD | nogawafish</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.0" />
+<link rel="stylesheet" href="https://nogawafish.github.io/css/eureka.min.css">
+<script defer src="https://nogawafish.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://nogawafish.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://nogawafish.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="書籍「ビットコイン・スタンダード お金が変わると世界が変わる」を読んだ。 石貨・ビーズ、金、法定通貨、ビットコインが本書では貨幣の例として出てくる。 これら">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://nogawafish.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"THE BITCOIN STANDARD",
+      "item":"https://nogawafish.github.io/posts/2022/bitcoin_standard/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nogawafish.github.io/posts/2022/bitcoin_standard/"
+    },
+    "headline": "THE BITCOIN STANDARD | nogawafish","datePublished": "2022-05-23T20:37:22+09:00",
+    "dateModified": "2022-05-23T20:37:22+09:00",
+    "wordCount":  2912 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://nogawafish.github.io/images/icon.png"
+        }
+        },
+    "description": "書籍「ビットコイン・スタンダード お金が変わると世界が変わる」を読んだ。 石貨・ビーズ、金、法定通貨、ビットコインが本書では貨幣の例として出てくる。 これら"
+}
+</script><meta property="og:title" content="THE BITCOIN STANDARD | nogawafish" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://nogawafish.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://nogawafish.github.io/posts/2022/bitcoin_standard/" />
+
+
+
+
+<meta property="og:description" content="書籍「ビットコイン・スタンダード お金が変わると世界が変わる」を読んだ。 石貨・ビーズ、金、法定通貨、ビットコインが本書では貨幣の例として出てくる。 これら" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="nogawafish" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-05-23T20:37:22&#43;09:00" />
+
+
+<meta property="article:modified_time" content="2022-05-23T20:37:22&#43;09:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">nogawafish</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">THE BITCOIN STANDARD</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2022-05-23</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>6 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            
+<p>
+書籍「ビットコイン・スタンダード お金が変わると世界が変わる」を読んだ。</p>
+<p>
+石貨・ビーズ、金、法定通貨、ビットコインが本書では貨幣の例として出てくる。
+これらを比較したときおおよそ以下のようになると述べられている。</p>
+<div id="outline-container-headline-1" class="outline-3">
+<h3 id="headline-1">
+1 石貨・ビーズ vs 金
+</h3>
+<div id="outline-text-headline-1" class="outline-text-3">
+<p>増産の難しいハードマネーである金を用いる人は、イージーマネーである石貨・ビーズを使う人の財産を奪うことができてしまう。
+それは、ハードマネーを用いる社会が安定しており、文明が進んでいて、イージーマネーを簡単に増産できるためである。
+逆にハードマネーは簡単に増産することができないからそのような乗っ取りが起こりにくい。</p>
+<p>
+本書では、増産の難易度については、ストックフロー比率(現状の量と新規に増産される量の比)で説明される。</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-3">
+<h3 id="headline-2">
+2 法定通貨 vs 金
+</h3>
+<div id="outline-text-headline-2" class="outline-text-3">
+<p>法定通貨に対する金の優位性は、</p>
+<ul>
+<li>
+<p>金は増産がしにくいハードマネーであり価値が安定している</p>
+</li>
+<li>
+<p>金が通用する世界では価格が金ベースでやり取りできるため為替が必要ない</p>
+</li>
+<li>
+<p>財政政策による法定通貨の増産は以下の悪影響がある</p>
+<ul>
+<li>
+<p>インフレの原因になる</p>
+</li>
+<li>
+<p>価格の指標として正しい値にならない</p>
+</li>
+<li>
+<p>融資が甘くなり潰れるべき企業が延命される</p>
+</li>
+<li>
+<p>紙幣を無限に刷ることにより、国民の財産が国に奪われる。戦争が国民の財産が尽きるまで行われる。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>法定通貨 vs 金の議論についても、石貨・ビーズ vs 金のような議論が通用するのか？
+つまり、金の所有者が法定通貨を増産することはできないので、全く同じような話にはならないと思う。
+ストックフロー比率で見ると金の方が高く増産が難しいので価値保存として優れているというのが共通している議論か。</p>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+3 法定通貨 vs ビットコイン
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<p>基本的には 金 vs 法定通貨と同様。</p>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+4 金 vs ビットコイン
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<p>ビットコインの優位性は以下</p>
+<ul>
+<li>
+<p>2025年のビットコインのストックフロー比率は2025年までに金の2倍になると予想される。</p>
+</li>
+<li>
+<p>価値保存以外の用途として、ビットコインは送金の用途にも使える(手数料と送金時間が高すぎて実用的ではないものの)一方、金の用途は装飾品や工業用途である。ビットコインの方が価値保存と送金の2つの相性は良い。</p>
+</li>
+</ul>
+<p>ちなみに金もビットコインも、国家の制約を受けにくいというのが、国家による財政政策などのコントロールを受けないのでともに良い点らしい。</p>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
+現状残る疑問
+</h3>
+<div id="outline-text-headline-5" class="outline-text-3">
+<ul>
+<li>
+<p>攻撃者が攻撃しても得られるビットコインの価値が暴落しており労力に見合わないと述べられているが、攻撃者はショートを組み合わせれば利益を上げられるんじゃないのかな。</p>
+</li>
+<li>
+<p>ビットコインの利用例としてウイルスの身代金として使用されるが、それでセキュリティ意識が上がるから良いやんと書かれていて、流石にそれはどうなんだろうと思った。</p>
+</li>
+<li>
+<p>金やビットコイン本位制になって、政府の財政コントロールがない世界はどうなるか気になる。</p>
+</li>
+<li>
+<p>PoSだと価値保存の手段として何か問題はあるか。PoSのストックフロー比率はどうなるのか。</p>
+</li>
+<li>
+<p>送金が安くて、ビットコイン以上に信用がある貨幣があればよいのに。</p>
+</li>
+</ul>
+<p>
+各章の要約も書く。</p>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-3">
+<h3 id="headline-6">
+1章 貨幣とは
+</h3>
+<div id="outline-text-headline-6" class="outline-text-3">
+<p>貨幣の3つの機能として以下がある。</p>
+<ol>
+<li>
+<p>交換機能(間接交換)</p>
+<ul>
+<li>
+<p>交換の際の規模、場所、期間の一致の欠如を補う貨幣が求められる。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>価値貯蔵手段</p>
+<ul>
+<li>
+<p>生産が容易でコストが低い貨幣をイージーマネーという。逆はハードマネー。</p>
+</li>
+<li>
+<p>イージーマネーは需要があると大量に供給が行われ、価値貯蔵手段としてふさわしくない。ストック・フロー比率が低い。</p>
+</li>
+<li>
+<p>優れた価値貯蔵手段を持つ貨幣を持つ人は、時間選好が低くなる(未来志向になる)。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>価値尺度</p>
+<ul>
+<li>
+<p>交換手段が標準化されると、その利用者数の増加とともに経済圏が拡大する。</p>
+</li>
+<li>
+<p>経済圏が広がるメリットは</p>
+<ul>
+<li>
+<p>分業と貿易による利益機会拡大</p>
+</li>
+<li>
+<p>生産活動の効率化と生産方式の持続性(分業ができると設備に投資ができる)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-3">
+<h3 id="headline-7">
+2章 原始貨幣
+</h3>
+<div id="outline-text-headline-7" class="outline-text-3">
+<p>貝殻、石貨、ビーズなどの原始貨幣を使っている社会は、
+金属通貨等のよりハードな貨幣を使っている社会よりも文明の発展が遅くなったり
+分業体制が構築できなかったりする。</p>
+<p>
+ハードマネーを使っている者たちにより
+イージーマネーが大量生産(貝殻の大量採取・機械による石貨切り出し・ビーズの工業生産)されることにより、
+イージーマネーで暮らす人々の財産は奪われ、
+またイージーマネーは崩壊した。</p>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-3">
+<h3 id="headline-8">
+3章 金属通貨
+</h3>
+<div id="outline-text-headline-8" class="outline-text-3">
+<p>財への需要として、市場需要と貨幣需要がある。
+市場需要は財そのものを保有または消費するための需要、
+貨幣需要は財を交換手段として使うための需要。</p>
+<p>
+銅・亜鉛・ニッケル・真鍮・石油などの大量に消費されまた大量供給可能な財に資産を貯蔵しても、
+価格が上がったとしても供給者が増産して利益を得るだけで、
+その財を持っている人の資産は上がらない。</p>
+<p>
+金属の中で、金が貨幣として選ばれたのは、
+化学的安定性と合成不可能で極めて希少な鉱石からしか産出できないことによる。</p>
+<p>
+化学的安定性により過去採掘された全量が地上に現存することを意味する。
+危険で不確実で高コストな方法でしか供給量を増やせない。
+地上に現存する金ストックは過去数千年間の総産出量であり、
+新規産出量は桁違いに少ない。
+そのため新規産出量を増やして価格暴落を引き起こすことが不可能である。
+金のストック・フロー比率は60程度である。</p>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-3">
+<h3 id="headline-9">
+4章 法定通貨
+</h3>
+<div id="outline-text-headline-9" class="outline-text-3">
+<p>政府が法令で通用を強制する法定通貨について、重要な2点。</p>
+<ol>
+<li>
+<p>政府が発行する貨幣には、金との交換が保証された兌換紙幣と保証されていない不換紙幣がある。
+兌換紙幣は政府による供給量操作が不可能。
+一方の不換紙幣は政府が供給量を人にに操作できる。</p>
+</li>
+<li>
+<p>法定通貨は不換紙幣であっても金を根拠として通用する。
+今日でも金準備での裏付けか、金準備で裏付けされた貨幣を準備金としている。</p>
+</li>
+</ol>
+<p>不換紙幣が政府によって供給量操作が行われることのデメリットは以下。</p>
+<ul>
+<li>
+<p>政府に資金が必要になったとき、方法としては、増税、国債発行もあるが、単純に紙幣を増やすことでも市場が受け入れる限りは資金調達の方法になる。</p>
+<ul>
+<li>
+<p>紙幣の供給を増やすと、インフレを招き、国民の財を政府が盗むことになる。</p>
+</li>
+<li>
+<p>貨幣膨張で財源が尽きる心配が無くなった政府により、第一次世界大戦は行きつくところまで行われた。</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-3">
+<h3 id="headline-10">
+5章 貨幣と時間選好
+</h3>
+<div id="outline-text-headline-10" class="outline-text-3">
+<p>インフレしない健全な貨幣には以下のメリットがある。</p>
+<ul>
+<li>
+<p>価値を長期保存できるため、人々に将来について考え、備えるように促す。時間選好を下げ、将来をより重んじさせる。</p>
+</li>
+<li>
+<p>安定した価値尺度として機能するため、取引が簡素化、円滑化する。</p>
+</li>
+<li>
+<p>独裁政治や抑圧的な支配から自由になるために必要。</p>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-3">
+<h3 id="headline-11">
+6章 資本主義の情報システム
+</h3>
+<div id="outline-text-headline-11" class="outline-text-3">
+<p>以下引用する。p.104</p>
+<blockquote>
+<p>中央銀行が貨幣供給を計画するのは望ましくないだけではなく、そもそも、そんなことは不可能なので。経済の要である資本市場は大規模で複雑かつ予測不能である。
+(略)
+  市場で選択された健全な貨幣は価値が比較的安定している。貨幣が安定しているからこそ、自由市場が機能する。中央で供給管理される不健全な貨幣は、
+その供給管理されるという本質的性質が正しい価格シグナルの形成を阻害する。
+(略)
+資本市場も同じで、中央銀行が介入することで価格メカニズムが働かなくなる。</p>
+</blockquote>
+<p>
+以下は力尽きた。</p>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-3">
+<h3 id="headline-12">
+7章 健全な貨幣と個人の自由
+</h3>
+</div>
+<div id="outline-container-headline-13" class="outline-3">
+<h3 id="headline-13">
+8章 デジタル貨幣
+</h3>
+</div>
+<div id="outline-container-headline-14" class="outline-3">
+<h3 id="headline-14">
+9章 デジタルゴールドとしてのビットコイン
+</h3>
+</div>
+<div id="outline-container-headline-15" class="outline-3">
+<h3 id="headline-15">
+10章 ビットコインについてのよくある質問
+</h3>
+</div>
+
+        </div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="https://nogawafish.github.io/posts/2021/mongo/" class="block">raspberry pi 4BでUbuntu Seruverをusb bootしMongoDBをインストール</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 - 2022 nogawafish
+  </p>
+</div>
+</div>
+  </footer>
+</body>
+
+</html>
