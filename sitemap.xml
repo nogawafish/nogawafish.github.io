@@ -2,9 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nogawafish.github.io/docs/python/</loc>
-    <lastmod>2021-09-12T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://nogawafish.github.io/docs/trading/ml_trading/hypothesis/</loc>
     <lastmod>2021-06-13T13:37:45+09:00</lastmod>
   </url><url>
@@ -74,13 +71,13 @@
     <loc>https://nogawafish.github.io/posts/2021/mongo/</loc>
     <lastmod>2021-09-20T11:10:26+09:00</lastmod>
   </url><url>
-    <loc>https://nogawafish.github.io/docs/</loc>
-    <lastmod>2021-09-12T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://nogawafish.github.io/posts/2021/crypt_period/</loc>
     <lastmod>2021-06-20T21:31:09+09:00</lastmod>
   </url><url>
     <loc>https://nogawafish.github.io/docs/trading/data/cryptowatch/</loc>
+    <lastmod>2021-06-13T19:35:07+09:00</lastmod>
+  </url><url>
+    <loc>https://nogawafish.github.io/docs/</loc>
     <lastmod>2021-06-13T19:35:07+09:00</lastmod>
   </url><url>
     <loc>https://nogawafish.github.io/docs/trading/ml_trading/betting/</loc>
